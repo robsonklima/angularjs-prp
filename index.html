@@ -1,0 +1,57 @@
+<html ng-app="app">
+<head>
+		<meta charset="UTF-8">
+		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+		<title>Project Risk Prediction</title>
+    <!-- Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="lib/bootswatch/bootswatch-paper-min.css">
+		<link rel="stylesheet" type="text/css" href="css/css.css">
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome/font-awesome.min.css">
+
+    <!-- Angular -->
+		<script src="lib/angular/angular.js"></script>
+		<script src="lib/angular/angular-messages.js"></script>
+		<script src="lib/angular/angular-route.js"></script>
+		<script src="lib/angular/angular-cookies.js"></script>
+		<script src="lib/angular/angular-animate.min.js"></script>
+		<script src="lib/angular/angular-aria.min.js"></script>
+		<script src="lib/angular/angular-locale_pt-br.js"></script>
+
+    <!-- Angular Material -->
+    <script src="lib/material/angular-material.min.js"></script>
+    <link rel="stylesheet" href="lib/material/angular-material.min.css">
+
+    <!-- App -->
+	  <script src="js/app.js"></script>
+
+    <!-- Config -->
+    <script src="js/constants/config.constant.js"></script>
+    <script src="js/constants/messages.constant.js"></script>
+	  <script src="js/config/route.config.js"></script>
+	  <script src="js/config/interceptors.config.js"></script>
+    <script src="js/config/material.config.js"></script>
+
+    <!-- Controllers -->
+		<script src="js/controllers/login.controller.js"></script>
+    <script src="js/controllers/home.controller.js"></script>
+		<script src="js/controllers/side-nav.controller.js"></script>
+		<script src="js/controllers/projects.controller.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/login.service.js"></script>
+
+    <!-- Factories -->
+    <script src="js/factories/base64.factory.js"></script>
+
+    <!-- Filters -->
+	  <script src="js/filters/ellipsis.filter.js"></script>
+    <script src="js/filters/seconds-to-datetime.filter.js"></script>
+
+    <!-- Interceptors -->
+    <script src="js/interceptors/loading.interceptor.js"></script>
+</head>
+<body>
+		<div ng-include="'views/side-nav.html'" ng-show="showSideNav"></div>
+		<div ng-view></div>
+</body>
+</html>
