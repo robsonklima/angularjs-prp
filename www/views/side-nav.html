@@ -3,11 +3,12 @@
     <md-sidenav class="md-sidenav-left" md-component-id="left"
       md-disable-backdrop md-whiteframe="4">
 
-      <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">
-          <a ng-click="toggleLeft()">
-            <i class="fa fa-bars fa-fw fa-tag" aria-hidden="true"></i></a> &nbsp;&nbsp; Menu
-        </h1>
+      <md-toolbar>
+        <div class="main-nav">
+            <div class="left-child"><h5><a ng-click="toggleLeft()"><i class="fa fa-bars fa-tag"></i></a></h5></div>
+            <div class="center-child"><h5>Menu</h5></div>
+        </div>
+
       </md-toolbar>
 
       <md-content layout-margin>
@@ -29,9 +30,9 @@
     </md-sidenav>
 
     <md-content flex layout-padding>
-      <div layout="column" layout-align="top center">
+      <div layout="column">
         <div class="main-nav">
-            <div class="left-child"><h5><a ng-click="toggleLeft()"><i class="fa fa-bars fa-fw fa-tag"></i></a></h5></div>
+            <div class="left-child"><h5><a ng-click="toggleLeft()"><i class="fa fa-bars fa-tag"></i></a></h5></div>
             <div class="center-child"><h5>Project Risk Prediction</h5></div>
         </div>
       </div>

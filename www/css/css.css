@@ -3,23 +3,69 @@ html {
   background-color: white !important;
 }
 
-.main-container {
-    margin-top: 20%;
-}
-
-.fullpage {
-    text-align: center;
-    height: 60%;
-    width: 100%;
-}
-
-.btn-check-in {
-    margin: 40% auto;
-    width: 60%;
-}
-
-.md-accent-sidebar {
+.main-nav {
+    left: 0;
     position: fixed;
+    top: 0;
+    z-index: 9999 !important;
+    background-color: #2196F3;
+    width: 100%;
+    min-height: 64px;
+
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.main-nav a {
+    text-decoration: none;
+}
+
+.main-nav h5 {
+    color: white;
+}
+
+.main-nav .center-child {
+    margin-left: 0px;
+    line-height: 57px;
+    padding-top: 9px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+.main-nav .left-child {
+    height: 64px;
+    width: 60px;
+    position: absolute;
+    z-index: 99;
+}
+
+.main-nav .left-child a {
+    color: #F2F2F2;
+    text-decoration: none;
+}
+
+.main-nav .right-child {
+    height: 64px;
+    width: 18%;
+    float: right;
+    position: relative;
+    z-index: 999;
+}
+
+.main-nav .right-child h5, .main-nav .left-child h5 {
+    margin-top: 0px;
+}
+
+.fa-tag {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-top: 36%;
+}
+
+.md-theme-indigo {
+  height: 64px;
 }
 
 .md-sidenav-left a {
@@ -33,75 +79,18 @@ html {
     padding-left: 20px !important;
 }
 
-.label {
-    line-height: 20px !important;
+.md-accent-sidebar {
+    position: fixed;
 }
 
-.list-group-item-text {
-    margin-top: 8px;
+.label {
+    line-height: 20px !important;
 }
 
 .md-theme-indigo h1 {
     padding-top: 7px;
     padding-left: 18px;
     color: white;
-}
-
-.fa-tag {
-    padding-left: 2px;
-    height: 37px;
-    padding-top: 10px;
-}
-
-.order {
-    color: silver;
-}
-
-#map_canvas {
-    height: 92%;
-    width: 100%;
-    margin: 0px;
-    margin-top: -20px;
-    z-index: 0;
-}
-
-#map_canvas {
-    position: fixed;
-    z-index: 1;
-}
-
-.map-buttons {
-    z-index: 2;
-}
-
-.map-title {
-    text-align: center;
-}
-
-.gm-style-mtc {
-  display: none;
-}
-
-.angular-google-map-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
-
-.footer {
-    z-index: -1000;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.login-title {
-    color: #2196F3;
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: 6%;
 }
 
 .login-content {
@@ -115,6 +104,13 @@ html {
   height: 20em;
   margin-top: -3em;
   width: 100%;
+}
+
+.login-title {
+    color: #2196F3;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 6%;
 }
 
 .btn-login {
@@ -148,10 +144,6 @@ html {
     vertical-align: center;
 }
 
-.backup-top {
-    margin-top: 26px;
-}
-
 .center-text {
     text-align: center;
 }
@@ -165,82 +157,6 @@ html {
 .disabled {
   cursor: not-allowed;
   pointer-events: none;
-}
-
-.main-nav {
-    left: 0;
-    position: fixed;
-    top: 0;
-    z-index: 9999 !important;
-    background-color: #2196F3;
-    width: 100%;
-    min-height: 64px;
-    margin-bottom: 22px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-.main-nav a {
-    text-decoration: none;
-}
-
-.main-nav h5 {
-    color: white;
-}
-
-.md-theme-indigo {
-  height: 64px;
-}
-
-.main-nav .left-child {
-    line-height: 57px;
-    padding-top: 0px;
-    padding-left: 20px;
-    width: 20%;
-    position: absolute;
-    text-align: left;
-    z-index: 99;
-}
-
-.main-nav .center-child {
-    margin-left: 0px;
-    line-height: 57px;
-    padding-top: 9px;
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    z-index: 0;
-}
-
-.main-nav .right-child {
-    line-height: 57px;
-    padding-top: 13px;
-    padding-right: 22px;
-    width: 20%;
-    float: right;
-    text-align: right;
-    z-index: 999;
-    position: relative;
-}
-
-.label-right {
-    float: right;
-    margin-top: 0px;
-    padding-top: 5px;
-    font-size: 14px;
-}
-
-.main-nav .right-child h5 {
-    margin-top: 0px;
-    color: #F2F2F2;
-}
-
-.main-nav .left-child h5 {
-
-}
-
-.main-nav .left-child a {
-    color: #F2F2F2;
-    text-decoration: none;
 }
 
 .md-sidenav-left {
