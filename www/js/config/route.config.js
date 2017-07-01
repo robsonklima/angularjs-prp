@@ -23,10 +23,10 @@ app.config(function ($routeProvider, $httpProvider) {
     });
 
     // Error
-    $routeProvider.when("/erro", {
-       templateUrl: "views/erro.html"
+    $routeProvider.when("/error", {
+       templateUrl: "views/error.html"
     });
 
     // Redirect
-    $routeProvider.otherwise({redirectTo: "/erro"});
+    $routeProvider.otherwise({redirectTo: "/error"});
 });

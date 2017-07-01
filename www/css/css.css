@@ -43,7 +43,7 @@ html {
 
 .md-theme-indigo h1 {
     padding-top: 7px;
-    padding-left: -left: 10px;
+    padding-left: 10px;
     color: white;
 }
 
@@ -98,15 +98,17 @@ html {
     margin-bottom: 6%;
 }
 
-.login-form {
-    /*margin-top: 61%;*/
-    margin-top: 10%;
+.login-content {
+  position: relative;
+  height: 100%;
 }
 
-@media (min-width: 700px) {
-    .login-form {
-        margin-top: 12%;
-    }
+.login-form {
+  position: absolute;
+  top: 30%;
+  height: 20em;
+  margin-top: -3em;
+  width: 100%;
 }
 
 .btn-login {
@@ -160,6 +162,7 @@ html {
 }
 
 .main-nav {
+    left: 0;
     position: fixed;
     top: 0;
     z-index: 9999 !important;
@@ -193,6 +196,7 @@ html {
 }
 
 .main-nav .center-child {
+    margin-left: 0px;
     line-height: 57px;
     padding-top: 9px;
     text-align: center;
@@ -276,4 +280,12 @@ md-select-menu {
 md-content {
     background-color: white;
     margin-top: -12px;
+}
+
+.label {
+    line-height: 20px !important;
+}
+
+.badge-2 {
+    margin-top: 4px;
 }

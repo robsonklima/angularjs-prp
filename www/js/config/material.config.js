@@ -22,8 +22,8 @@ app.config(function($mdThemingProvider) {
     'contrastLightColors': undefined    // could also specify this if default was 'dark'
   });
 
-  // Available palettes: red, pink, purple, deep-purple, indigo, blue, light-blue, 
-  // teal, green, light-green, lime, yellow, amber, orange, deep-orange, brown, grey, 
+  // Available palettes: red, pink, purple, deep-purple, indigo, blue, light-blue,
+  // teal, green, light-green, lime, yellow, amber, orange, deep-orange, brown, grey,
   // cyan, blue-grey, amazingPaletteName
   $mdThemingProvider.theme('default')
     .primaryPalette('amazingPaletteName')
