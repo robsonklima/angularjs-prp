@@ -43,8 +43,14 @@ html {
 
 .md-theme-indigo h1 {
     padding-top: 7px;
-    padding-left: 10px;
+    padding-left: 18px;
     color: white;
+}
+
+.fa-tag {
+    padding-left: 2px;
+    height: 37px;
+    padding-top: 10px;
 }
 
 .order {
@@ -187,7 +193,7 @@ html {
 
 .main-nav .left-child {
     line-height: 57px;
-    padding-top: 10px;
+    padding-top: 0px;
     padding-left: 20px;
     width: 20%;
     position: absolute;
@@ -207,7 +213,7 @@ html {
 
 .main-nav .right-child {
     line-height: 57px;
-    padding-top: 22px;
+    padding-top: 12px;
     padding-right: 22px;
     width: 20%;
     float: right;
