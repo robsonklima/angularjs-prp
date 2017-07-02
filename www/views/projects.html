@@ -1,7 +1,7 @@
 <div class="main-nav">
-    <div class="left-child"><a href="#/home"><h5><i class="fa fa-chevron-left fa-tag"></i></a></h5></div>
+    <div class="left-child"><a href="#/home"><h5><i class="fa fa-chevron-left link-icon"></i></a></h5></div>
     <div class="center-child"><h5>Projects</h5></div>
-    <div class="right-child"><a href=""><h5><i class="fa fa-plus fa-tag"></i></h5></a></div>
+    <div class="right-child"><a href="#/project-form"><h5><i class="fa fa-plus link-icon"></i></h5></a></div>
 </div>
 
 <div class="separator-large"></div>
@@ -16,7 +16,7 @@
               </div>
           </div>
           <div class="list-group table-of-contents" ng-show="!loading">
-            <a class="list-group-item" ng-repeat="project in projects" href="#/project/{{ project.id }}">
+            <a class="list-group-item" ng-repeat="project in projects" href="#/project-form/{{ project.id }}">
                 <span class="badge badge-2">4a</span>
                 <h4 class="list-group-item-heading">
                      {{ project.name }}

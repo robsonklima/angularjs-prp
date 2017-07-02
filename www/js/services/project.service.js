@@ -14,11 +14,11 @@ app.factory("projectService", function($http, config) {
         });
     }
 
-    var _insert = function(obj) {
+    var _insert = function(project) {
         return $http({
             url: config.apiUrl + 'projects/',
             method: 'POST',
-            data: obj
+            data: project
         });
     }
 

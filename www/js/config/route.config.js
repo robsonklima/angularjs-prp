@@ -21,6 +21,14 @@ app.config(function ($routeProvider, $httpProvider) {
        templateUrl: "views/projects.html",
        controller: "projectsCtrl"
     });
+    $routeProvider.when("/project-form", {
+       templateUrl: "views/project-form.html",
+       controller: "projectFormCtrl"
+    });
+    $routeProvider.when("/project-form/:id", {
+       templateUrl: "views/project-form.html",
+       controller: "projectFormCtrl"
+    });
 
     // Error
     $routeProvider.when("/error", {
