@@ -1,0 +1,113 @@
+<div class="main-nav">
+    <div class="left-child"><a href="#/activities"><h5>
+        <i class="fa fa-chevron-left link-icon"></i></a></h5></div>
+    <div class="center-child"><h5>{{ pageTitle }}</h5></div>
+    <div class="right-child" ng-if="risk.id"><a ng-click="remove(risk)">
+        <h5><i class="fa fa-trash link-icon"></i></h5></a></div>
+</div>
+
+<div class="separator-large"></div>
+
+<div class="container">
+     <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+            <div class="loading" ng-show="loading">
+                <div class="loading-content">
+                    <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <form name="form">
+                <div ng-if="!loading">
+
+                    <div class="form-group">
+                       <label class="control-label">Title</label>
+                       <input
+                          class="form-control"
+                          type="text"
+                          placeholder="Risk title"
+                          name="title"
+                          ng-model="risk.title"
+                          ng-required="true"
+                          ng-minlength="5"/>
+                       <div ng-show="form.title.$dirty" ng-messages="form.title.$error">
+                           <p class="help-block-error" ng-message="required">
+                              Please, type this field.</p>
+                           <p class="help-block-error" ng-message="minlength">
+                              This field must be at least 5 characters long.</p>
+                       </div>
+                    </div>
+
+                    <div class="form-group">
+                        <md-input-container>
+                            <label class="control-label">Cause</label>
+                            <textarea
+                                name="cause"
+                                md-maxlength="150"
+                                rows="3"
+                                md-select-on-focus
+                                ng-required="true"
+                                ng-model="risk.cause"></textarea>
+                        </md-input-container>
+                        <div ng-show="form.cause.$dirty" ng-messages="form.cause.$error">
+                            <p class="help-block-error" ng-message="required">
+                               Please, type this field.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <md-input-container>
+                            <label class="control-label">Effect</label>
+                            <textarea
+                                name="effect"
+                                md-maxlength="150"
+                                rows="3"
+                                md-select-on-focus
+                                ng-required="true"
+                                ng-model="risk.effect"></textarea>
+                        </md-input-container>
+                        <div ng-show="form.effect.$dirty" ng-messages="form.effect.$error">
+                            <p class="help-block-error" ng-message="required">
+                               Please, type this field.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select" class="control-label">Risk Type</label>
+                        <select
+                            class="form-control"
+                            name="risk_type"
+                            ng-required = "true"
+                            ng-model="risk.id_risk_type"
+                            ng-options="risk_type.id as risk_type.name for risk_type in risk_types | orderBy:'name'">
+                            <option value="">Select risk type</option>
+                        </select>
+                        <div ng-show="form.risk_type.$dirty" ng-messages="form.risk_type.$error">
+                            <p class="help-block-error" ng-message="required">
+                               Please, type this field.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select" class="control-label">Risk Category</label>
+                        <select
+                            class="form-control"
+                            name="risk_category"
+                            ng-required = "true"
+                            ng-model="risk.id_risk_category"
+                            ng-options="risk_category.id as risk_category.name for risk_category in risk_categories | orderBy:'name'">
+                            <option value="">Select risk type</option>
+                        </select>
+                        <div ng-show="form.risk_type.$dirty" ng-messages="form.risk_type.$error">
+                            <p class="help-block-error" ng-message="required">
+                               Please, type this field.</p>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" ng-click="save(risk)"
+                        ng-disabled="form.$invalid && !loading">Save</button>
+                </div>
+           </form>
+        </div>
+    </div>
+</div>

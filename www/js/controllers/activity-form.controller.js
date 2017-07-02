@@ -60,6 +60,7 @@ app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog
 
     $scope.remove = function(activity) {
         var confirm = $mdDialog.confirm()
+          .title("Please confirm")
           .textContent('Are you sure to delete this activity?')
           .ok('Yes')
           .cancel('No');
@@ -87,5 +88,5 @@ app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog
 
     findProjects();
     findUsers();
-    
+
 });

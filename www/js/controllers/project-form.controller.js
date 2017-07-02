@@ -43,6 +43,7 @@ app.controller("projectFormCtrl", function($scope, $route, $location, $mdDialog,
 
     $scope.remove = function(project) {
         var confirm = $mdDialog.confirm()
+          .title("Please confirm")
           .textContent('Are you sure to delete this project?')
           .ok('Yes')
           .cancel('No');
