@@ -234,3 +234,11 @@ md-input-container label {
 .help-block-error {
     color: red;
 }
+
+.select-span {
+    padding-left: 2px;
+}
+
+.md-select-menu-container {
+    z-index: 99999 !important;
+}

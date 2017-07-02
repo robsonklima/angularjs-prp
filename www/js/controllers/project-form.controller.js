@@ -17,7 +17,8 @@ app.controller("projectFormCtrl", function($scope, $route, $location, $mdDialog,
 
     var insert = function(project) {
         projectService.insert(project).success(function(data) {
-            showConfirm('Success', 'Project added successfully');
+            showAlert('Message', 'Project added successfully');
+            $location.path('projects');
         }).error(function(data, status) {
             showAlert('Error', 'Unable to insert project');
         });
@@ -30,6 +31,14 @@ app.controller("projectFormCtrl", function($scope, $route, $location, $mdDialog,
         }).error(function(data, status) {
             showAlert('Error', 'Unable to update project');
         });
+    };
+
+    $scope.save = function(project) {
+        if ($route.current.params.id) {
+            update(project);
+        } else {
+            insert(project);
+        }
     };
 
     $scope.remove = function(project) {
@@ -45,29 +54,6 @@ app.controller("projectFormCtrl", function($scope, $route, $location, $mdDialog,
             }).error(function(data, status, headers, config) {
                 showAlert('Error', 'Unable to remove project');
             });
-        });
-    };
-
-    $scope.save = function(project) {
-        if ($route.current.params.id) {
-            update(project);
-        } else {
-            insert(project);
-        }
-    };
-
-    var showConfirm = function(ev) {
-        var confirm = $mdDialog.confirm()
-              .title('Message')
-              .textContent('Project added successfully')
-              .ok('Ok')
-              .cancel('Add another one');
-
-        $mdDialog.show(confirm).then(function() {
-            $location.path('projects');
-        }, function() {
-            $scope.project = null;
-            $scope.form.$setPristine();
         });
     };
 

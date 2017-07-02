@@ -1,0 +1,107 @@
+<div class="main-nav">
+    <div class="left-child"><a href="#/activities"><h5>
+        <i class="fa fa-chevron-left link-icon"></i></a></h5></div>
+    <div class="center-child"><h5>{{ pageTitle }}</h5></div>
+    <div class="right-child" ng-if="activity.id"><a ng-click="remove(activity)">
+        <h5><i class="fa fa-trash link-icon"></i></h5></a></div>
+</div>
+
+<div class="separator-large"></div>
+
+<div class="container">
+     <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+            <div class="loading" ng-show="loading">
+                <div class="loading-content">
+                    <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <form name="form">
+                <div ng-if="!loading">
+
+                    <div class="form-group">
+                       <label class="control-label">Title</label>
+                       <input
+                          class="form-control"
+                          type="text"
+                          placeholder="Activity title"
+                          name="title"
+                          ng-model="activity.title"
+                          ng-required="true"
+                          ng-minlength="5"/>
+                       <div ng-show="form.title.$dirty" ng-messages="form.title.$error">
+                           <p class="help-block-error" ng-message="required">
+                              Please, type this field.</p>
+                           <p class="help-block-error" ng-message="minlength">
+                              This field must be at least 5 characters long.</p>
+                       </div>
+                    </div>
+
+                    <div class="form-group">
+                       <label class="control-label">Amount Hours</label>
+                       <input
+                          class="form-control"
+                          type="text"
+                          placeholder="Amount hours"
+                          name="amount_hours"
+                          ng-model="activity.amount_hours"
+                          ng-required="true"/>
+                       <div ng-show="form.amount_hours.$dirty" ng-messages="form.amount_hours.$error">
+                           <p class="help-block-error" ng-message="required">
+                              Please, type this field.</p>
+                       </div>
+                    </div>
+
+                    <div class="form-group">
+                        <md-input-container>
+                            <label class="control-label">Details</label>
+                            <textarea
+                                md-maxlength="150"
+                                rows="3"
+                                md-select-on-focus
+                                ng-model="activity.details"></textarea>
+                        </md-input-container>
+                    </div>
+
+                    <div class="form-group">
+                          <span class="select-span">Project</span>
+                          <md-select
+                              name="project"
+                              ng-model="activity.id_project"
+                              placeholder="Select project"
+                              class="md-no-underline"
+                              ng-required="true">
+                              <md-option
+                                  ng-repeat="project in projects"
+                                  value="{{ project.id }}">{{ project.name }}</md-option></md-select>
+                          <div ng-show="form.project.$dirty" ng-messages="form.project.$error">
+                              <p class="help-block-error" ng-message="required">
+                                 Please, type this field.</p>
+                          </div>
+                    </div>
+
+                    <div class="form-group">
+                          <span class="select-span">Resource</span>
+                          <md-select
+                              name="id_user"
+                              ng-model="activity.id_user"
+                              placeholder="Select resource"
+                              class="md-no-underline"
+                              ng-required="true">
+                              <md-option
+                                  ng-repeat="user in users"
+                                  value="{{ user.id }}">{{ user.name }}</md-option></md-select>
+                          <div ng-show="form.user.$dirty" ng-messages="form.user.$error">
+                              <p class="help-block-error" ng-message="required">
+                                 Please, type this field.</p>
+                          </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" ng-click="save(activity)"
+                        ng-disabled="form.$invalid">Save</button>
+                </div>
+           </form>
+        </div>
+    </div>
+</div>

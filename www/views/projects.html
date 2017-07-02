@@ -15,6 +15,9 @@
                   <span class="sr-only">Loading...</span>
               </div>
           </div>
+          <div class="center-text" ng-show="projects.length == 0">
+                <p>No results.</p>
+          </div>
           <div class="list-group table-of-contents" ng-show="!loading">
             <a class="list-group-item" ng-repeat="project in projects" href="#/project-form/{{ project.id }}">
                 <span class="badge badge-2">4a</span>
