@@ -1,29 +1,5 @@
-app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog, messages, activityService, projectService, userService){
-
-
-    var findUsers = function() {
-        userService.find().success(function(data, status) {
-            $scope.users = data.users;
-        }).error(function(data, status) {
-            $scope.error = messages.unableToFetchItens;
-        }).finally(function() {
-            $scope.loading = false;
-        });
-    };
-
-    findUsers();
-
-    var findProjects = function() {
-        projectService.find().success(function(data, status) {
-            $scope.projects = data.projects;
-        }).error(function(data, status) {
-            $scope.error = messages.unableToFetchItens;
-        }).finally(function() {
-            $scope.loading = false;
-        });
-    };
-
-    findProjects();
+app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog,
+    messages, activityService, projectService, userService){
 
     var findById = function() {
         activityService.findById($route.current.params.id).success(function(data, status) {
@@ -39,6 +15,22 @@ app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog
     } else {
         $scope.pageTitle = 'New activity';
     }
+
+    var findUsers = function() {
+        userService.find().success(function(data, status) {
+            $scope.users = data.users;
+        }).error(function(data, status) {
+            $scope.error = messages.unableToFetchItens;
+        });
+    };
+
+    var findProjects = function() {
+        projectService.find().success(function(data, status) {
+            $scope.projects = data.projects;
+        }).error(function(data, status) {
+            $scope.error = messages.unableToFetchItens;
+        });
+    };
 
     var insert = function(activity) {
         activityService.insert(activity).success(function(data) {
@@ -93,4 +85,7 @@ app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog
         );
     };
 
+    findProjects();
+    findUsers();
+    
 });
