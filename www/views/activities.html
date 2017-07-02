@@ -29,13 +29,16 @@
                 <p class="list-group-item-text">{{ activity.details }}</p>
                 <span class="label label-primary">
                     <i class="fa fa-save fa-fw" aria-hidden="true"></i>
-                    {{ activity.added_date | date:'dd/MM HH:mm' }}</span>
+                    {{ activity.added_date | date:'dd/MM' }}</span>
                 <span class="label label-primary">
                     <i class="fa fa-briefcase fa-fw" aria-hidden="true"></i>
                     {{ activity.project_name }}</span>
                 <span class="label label-primary">
                     <i class="fa fa-user fa-fw" aria-hidden="true"></i>
                     {{ activity.user_name }}</span>
+                <span class="label label-info">
+                    <i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>
+                    {{ activity.amount_hours }}</span>
             </a>
         </div>
       </div>
