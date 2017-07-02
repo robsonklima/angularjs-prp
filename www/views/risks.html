@@ -27,7 +27,9 @@
                   <span class="label label-primary">
                       <i class="fa fa-save fa-fw" aria-hidden="true"></i>
                       {{ risk.added_date | date:'dd/MM HH:mm' }}</span>
-                  <span class="label label-primary">
+                  <span class="label"
+                      ng-class="{ 'label-success': risk.risk_type_name == 'Opportunity',
+                        'label-danger': risk.risk_type_name == 'Threat'}">
                       <i class="fa fa-tags fa-fw" aria-hidden="true"></i>
                       {{ risk.risk_type_name }}</span>
                   <span class="label label-primary">
