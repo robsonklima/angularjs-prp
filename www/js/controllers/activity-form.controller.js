@@ -1,5 +1,6 @@
 app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog, messages, activityService, projectService, userService){
 
+
     var findUsers = function() {
         userService.find().success(function(data, status) {
             $scope.users = data.users;

@@ -65,37 +65,35 @@
                     </div>
 
                     <div class="form-group">
-                          <span class="select-span">Project</span>
-                          <md-select
-                              name="project"
-                              ng-model="activity.id_project"
-                              placeholder="Select project"
-                              class="md-no-underline"
-                              ng-required="true">
-                              <md-option
-                                  ng-repeat="project in projects"
-                                  value="{{ project.id }}">{{ project.name }}</md-option></md-select>
-                          <div ng-show="form.project.$dirty" ng-messages="form.project.$error">
-                              <p class="help-block-error" ng-message="required">
-                                 Please, type this field.</p>
-                          </div>
+                        <label for="select" class="control-label">Project</label>
+                        <select
+                            class="form-control"
+                            name="project"
+                            ng-required = "true"
+                            ng-model="activity.id_project"
+                            ng-options="project.id as project.name for project in projects | orderBy:'name'">
+                            <option value="">Select activity project</option>
+                        </select>
+                        <div ng-show="form.project.$dirty" ng-messages="form.project.$error">
+                            <p class="help-block-error" ng-message="required">
+                               Please, type this field.</p>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                          <span class="select-span">Resource</span>
-                          <md-select
-                              name="id_user"
-                              ng-model="activity.id_user"
-                              placeholder="Select resource"
-                              class="md-no-underline"
-                              ng-required="true">
-                              <md-option
-                                  ng-repeat="user in users"
-                                  value="{{ user.id }}">{{ user.name }}</md-option></md-select>
-                          <div ng-show="form.user.$dirty" ng-messages="form.user.$error">
-                              <p class="help-block-error" ng-message="required">
-                                 Please, type this field.</p>
-                          </div>
+                        <label for="select" class="control-label">Owner</label>
+                        <select
+                            class="form-control"
+                            name="owner"
+                            ng-required = "true"
+                            ng-model="activity.id_user"
+                            ng-options="user.id as user.name for user in users | orderBy:'name'">
+                            <option value="">Select activity owner</option>
+                        </select>
+                        <div ng-show="form.owner.$dirty" ng-messages="form.owner.$error">
+                            <p class="help-block-error" ng-message="required">
+                               Please, type this field.</p>
+                        </div>
                     </div>
 
                     <button class="btn btn-primary btn-block" ng-click="save(activity)"

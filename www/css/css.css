@@ -3,6 +3,10 @@ html {
   background-color: white !important;
 }
 
+body a {
+    outline: none !important;
+}
+
 .main-nav {
     left: 0;
     position: fixed;
