@@ -4,7 +4,7 @@ app.controller("projectFormCtrl", function($scope, $route, $location, $mdDialog,
         projectService.findById($route.current.params.id).success(function(data, status) {
             $scope.project = data.project[0];
         }).error(function(data, status) {
-            showAlert('Error', 'Unable to find item');
+            showAlert('Error', 'Unable to find Project');
         });
     };
 
@@ -17,33 +17,33 @@ app.controller("projectFormCtrl", function($scope, $route, $location, $mdDialog,
 
     var insert = function(project) {
         projectService.insert(project).success(function(data) {
-            showConfirm('Success', 'Item added successfully');
+            showConfirm('Success', 'Project added successfully');
         }).error(function(data, status) {
-
+            showAlert('Error', 'Unable to insert project');
         });
     };
 
     var update = function(project) {
         projectService.update(project).success(function(data) {
-            showAlert('Success', 'Item updated successfully');
+            showAlert('Success', 'Project updated successfully');
             $location.path('projects');
         }).error(function(data, status) {
-            showAlert('Error', 'Unable to update item');
+            showAlert('Error', 'Unable to update project');
         });
     };
 
-    $scope.remove = function(obj) {
+    $scope.remove = function(project) {
         var confirm = $mdDialog.confirm()
-          .textContent('Are you sure to delete this item?')
+          .textContent('Are you sure to delete this project?')
           .ok('Yes')
           .cancel('No');
 
         $mdDialog.show(confirm).then(function() {
-            projectService.remove(obj).success(function(data, status) {
-                showAlert('Success', 'Item removed successfully');
+            projectService.remove(project).success(function(data, status) {
+                showAlert('Success', 'Project removed successfully');
                 $location.path('projects');
             }).error(function(data, status, headers, config) {
-                showAlert('Error', 'Unable to remove item');
+                showAlert('Error', 'Unable to remove project');
             });
         });
     };
@@ -59,7 +59,7 @@ app.controller("projectFormCtrl", function($scope, $route, $location, $mdDialog,
     var showConfirm = function(ev) {
         var confirm = $mdDialog.confirm()
               .title('Message')
-              .textContent('Item added successfully')
+              .textContent('Project added successfully')
               .ok('Ok')
               .cancel('Add another one');
 

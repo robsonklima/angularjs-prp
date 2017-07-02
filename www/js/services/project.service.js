@@ -22,17 +22,17 @@ app.factory("projectService", function($http, config) {
         });
     }
 
-    var _update = function(obj) {
+    var _update = function(project) {
         return $http({
-           url: config.apiUrl + 'projects/' + obj.id,
+           url: config.apiUrl + 'projects/' + project.id,
            method: 'PUT',
-           data: obj
+           data: project
         })
     }
 
-    var _remove = function(obj) {
+    var _remove = function(project) {
         return $http({
-           url: config.apiUrl + 'projects/' + obj.id,
+           url: config.apiUrl + 'projects/' + project.id,
            method: 'DELETE'
         });
     }
