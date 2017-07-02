@@ -20,7 +20,7 @@
           </div>
           <div class="list-group table-of-contents" ng-show="!loading">
             <a class="list-group-item" ng-repeat="project in projects" href="#/project-form/{{ project.id }}">
-                <span class="badge badge-2">4a</span>
+                <span class="badge badge-2">{{ project.id }}</span>
                 <h4 class="list-group-item-heading">
                      {{ project.name }}
                 </h4>
@@ -30,7 +30,7 @@
                     {{ project.added_date | date:'dd/MM HH:mm' }}</span>
                 <span class="label label-info">
                     <i class="fa fa-clone fa-fw" aria-hidden="true"></i>
-                    4 activities</span>
+                    {{ project.amount_activities }} activities</span>
                 <span class="label label-danger">
                     <i class="fa fa-warning fa-fw" aria-hidden="true"></i>
                     3 risks</span>
