@@ -3,9 +3,41 @@
 <div class="container">
    <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+
             <div class="well well-sm center-text">
                Welcome {{ user.name }}
             </div>
+
         </div>
     </div>
+
+    {{ isOpen }}
+
+    <div class="fab-speed-dial">
+        <md-fab-speed-dial md-open="speedDialOpen" md-direction="up" ng-class="'md-scale'" ng-show="showSpeedDial">
+            <md-fab-trigger>
+                <md-button aria-label="Menu" class="md-fab md-success">
+                    <md-tooltip md-direction="left" md-visible="tooltipVisible">Menu</md-tooltip>
+                    <i class="fa fa-plus"></i>
+                </md-button>
+            </md-fab-trigger>
+
+            <md-fab-actions>
+                <md-button aria-label="B" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="left" md-visible="tooltipVisible">Project</md-tooltip>
+                    <a href="#/project-form"><i class="fa fa-briefcase"></i></a>
+                </md-button>
+                <md-button aria-label="D" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="left" md-visible="tooltipVisible">Activity</md-tooltip>
+                    <a href="#/activity-form"><i class="fa fa-tag"></i></a>
+                </md-button>
+                <md-button aria-label="C" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="left" md-visible="tooltipVisible">Risk</md-tooltip>
+                    <a href="#/risk-form"><i class="fa fa-thermometer"></i></a>
+                </md-button>
+
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    <div>
+
 </div>

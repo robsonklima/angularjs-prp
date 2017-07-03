@@ -246,3 +246,13 @@ md-input-container label {
 .md-select-menu-container {
     z-index: 99999 !important;
 }
+
+.fab-speed-dial {
+    position: fixed;
+    bottom: 6%;
+    right: 8%;
+}
+
+md-tooltip {
+    opacity: 0.6;
+}

@@ -18,8 +18,12 @@
           <div class="center-text" ng-show="projects.length == 0">
                 <p>No results.</p>
           </div>
+
           <div class="list-group table-of-contents" ng-show="!loading">
-            <a class="list-group-item" ng-repeat="project in projects" href="#/project-form/{{ project.id }}">
+            <a
+                class="list-group-item"
+                href="#/project-form/{{ project.id }}"
+                ng-repeat="project in projects | orderBy:'name'">
                 <span class="badge badge-2">{{ project.id }}</span>
                 <h4 class="list-group-item-heading">
                      {{ project.name }}
