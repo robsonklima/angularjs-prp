@@ -53,6 +53,18 @@ app.config(function ($routeProvider, $httpProvider) {
        templateUrl: "views/risk-form.html",
        controller: "riskFormCtrl"
     });
+    $routeProvider.when("/risk-identifieds", {
+       templateUrl: "views/risk-identifieds.html",
+       controller: "riskIdentifiedsCtrl"
+    });
+    $routeProvider.when("/risk-identified-form", {
+       templateUrl: "views/risk-identified-form.html",
+       controller: "riskIdentifiedFormCtrl"
+    });
+    $routeProvider.when("/risk-identified-form/:id", {
+       templateUrl: "views/risk-identified-form.html",
+       controller: "riskIdentifiedFormCtrl"
+    });
 
     // Error
     $routeProvider.when("/error", {
