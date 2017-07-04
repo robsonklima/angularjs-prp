@@ -1,7 +1,7 @@
 <div class="main-nav">
     <div class="left-child"><a href="#/home"><h5><i class="fa fa-chevron-left link-icon"></i></a></h5></div>
     <div class="center-child"><h5>Identified Risks </h5></div>
-    <div class="right-child"><a href="#/risk-identified-form"><h5><i class="fa fa-plus link-icon"></i></h5></a></div>
+    <div class="right-child"><a href="#/risk-identification-form"><h5><i class="fa fa-plus link-icon"></i></h5></a></div>
 </div>
 
 <div class="separator-large"></div>
@@ -17,25 +17,25 @@
                   <span class="sr-only">Loading...</span>
               </div>
           </div>
-          <div class="center-text" ng-show="risk_identifieds.length == 0">
+          <div class="center-text" ng-show="risk_identifications.length == 0">
                 <p>No results.</p>
           </div>
 
           <div class="list-group table-of-contents" ng-show="!loading">
-              <a class="list-group-item" ng-repeat="risk_identified in risk_identifieds" href="#/risk-identified-form/{{ risk_identified.id }}">
+              <a class="list-group-item" ng-repeat="risk_identification in risk_identifications" href="#/risk-identification-form/{{ risk_identification.id }}">
                   <h4 class="list-group-item-heading">
-                       {{ risk_identified.risk_title }}
+                       {{ risk_identification.risk_title }}
                   </h4>
-                  <p class="list-group-item-text">{{ risk_identified.description }}</p>
+                  <p class="list-group-item-text">{{ risk_identification.description }}</p>
                   <span class="label label-primary">
                       <i class="fa fa-save fa-fw" aria-hidden="true"></i>
-                      {{ risk_identified.added_date | date:'dd/MM HH:mm' }}</span>
+                      {{ risk_identification.added_date | date:'dd/MM HH:mm' }}</span>
                   <span class="label label-default">
                       <i class="fa fa-tags fa-fw" aria-hidden="true"></i>
-                      {{ risk_identified.project_name }}</span>
+                      {{ risk_identification.project_name }}</span>
                   <span class="label label-primary">
                       <i class="fa fa-user fa-fw" aria-hidden="true"></i>
-                      {{ risk_identified.user_name }}</span>
+                      {{ risk_identification.user_name }}</span>
               </a>
         </div>
       </div>

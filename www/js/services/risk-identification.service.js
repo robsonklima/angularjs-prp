@@ -1,45 +1,45 @@
-app.factory("riskIdentifiedService", function($http, config) {
+app.factory("riskIdentificationService", function($http, config) {
 
     var _find = function() {
         return $http({
-            url: config.apiUrl + 'risk-identifieds/',
+            url: config.apiUrl + 'risk-identifications/',
             method: 'GET'
         });
     }
 
     var _findById = function(id) {
         return $http({
-            url: config.apiUrl + 'risk-identifieds/' + id,
+            url: config.apiUrl + 'risk-identifications/' + id,
             method: 'GET'
         });
     }
 
     var _findByIdUser = function(id_user) {
         return $http({
-            url: config.apiUrl + 'risk-identifieds/me/' + id_user,
+            url: config.apiUrl + 'risk-identifications/me/' + id_user,
             method: 'GET'
         });
     }
 
-    var _insert = function(risk_identified) {
+    var _insert = function(risk_identification) {
         return $http({
-            url: config.apiUrl + 'risk-identifieds/',
+            url: config.apiUrl + 'risk-identifications/',
             method: 'POST',
-            data: risk_identified
+            data: risk_identification
         });
     }
 
-    var _update = function(risk_identified) {
+    var _update = function(risk_identification) {
         return $http({
-           url: config.apiUrl + 'risk-identifieds/' + risk_identified.id,
+           url: config.apiUrl + 'risk-identifications/' + risk-identification.id,
            method: 'PUT',
-           data: risk_identified
+           data: risk_identification
         })
     }
 
-    var _remove = function(risk_identified) {
+    var _remove = function(risk_dentification) {
         return $http({
-           url: config.apiUrl + 'risk-identifieds/' + risk_identified.id,
+           url: config.apiUrl + 'risk-identifications/' + risk-identification.id,
            method: 'DELETE'
         });
     }

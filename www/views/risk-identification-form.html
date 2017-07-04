@@ -1,8 +1,8 @@
 <div class="main-nav">
-    <div class="left-child"><a href="#/risk-identifieds"><h5>
+    <div class="left-child"><a href="#/risk-identifications"><h5>
         <i class="fa fa-chevron-left link-icon"></i></a></h5></div>
     <div class="center-child"><h5>{{ pageTitle }}</h5></div>
-    <div class="right-child" ng-if="risk_identified.id"><a ng-click="remove(risk_identified)">
+    <div class="right-child" ng-if="risk_identification.id"><a ng-click="remove(risk_identification)">
         <h5><i class="fa fa-trash link-icon"></i></h5></a></div>
 </div>
 
@@ -36,7 +36,7 @@
                             class="form-control"
                             name="risk"
                             ng-required = "true"
-                            ng-model="risk_identified.id_risk"
+                            ng-model="risk_identification.id_risk"
                             ng-options="risk.id as risk.title for risk in risks | orderBy:'title'">
                             <option value="">Select risk</option>
                         </select>
@@ -54,7 +54,7 @@
                                 rows="3"
                                 md-select-on-focus
                                 required="true"
-                                ng-model="risk_identified.description"></textarea>
+                                ng-model="risk_identification.description"></textarea>
                         </md-input-container>
                         <div ng-show="form.description.$dirty" ng-messages="form.description.$error">
                             <p class="help-block-error" ng-message="required">
@@ -68,7 +68,7 @@
                             class="form-control"
                             name="project"
                             ng-required = "true"
-                            ng-model="risk_identified.id_project"
+                            ng-model="risk_identification.id_project"
                             ng-options="project.id as project.name for project in projects | orderBy:'name'">
                             <option value="">Select project</option>
                         </select>
@@ -84,7 +84,7 @@
                             class="form-control"
                             name="activity"
                             ng-required = "true"
-                            ng-model="risk_identified.id_activity"
+                            ng-model="risk_identification.id_activity"
                             ng-options="activity.id as activity.title for activity in activities | orderBy:'name'">
                             <option value="">Select activity</option>
                         </select>
@@ -96,7 +96,7 @@
 
                     <button
                         class="btn btn-primary btn-block"
-                        ng-click="save(risk_identified)"
+                        ng-click="save(risk_identification)"
                         ng-disabled="form.$invalid && !loading">Save</button>
                 </div>
            </form>

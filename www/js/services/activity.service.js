@@ -14,13 +14,6 @@ app.factory("activityService", function($http, config) {
         });
     }
 
-    var _findAvailableToRiskIdentifiedByUser = function(user_id) {
-        return $http({
-            url: config.apiUrl + 'activities/available-to-risk-identified/' + user_id,
-            method: 'GET'
-        });
-    }
-
     var _insert = function(activity) {
         return $http({
             url: config.apiUrl + 'activities/',
@@ -47,7 +40,6 @@ app.factory("activityService", function($http, config) {
     return {
         find: _find,
         findById: _findById,
-        findAvailableToRiskIdentifiedByUser: _findAvailableToRiskIdentifiedByUser,
         insert: _insert,
         update: _update,
         remove: _remove
