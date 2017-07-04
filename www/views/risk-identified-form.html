@@ -17,6 +17,9 @@
                     <span class="sr-only">Loading...</span>
                 </div>
             </div>
+            <div class="alert alert-danger" ng-show="error && !loading">
+                <p><strong>Oops!</strong> {{ error }}</p>
+            </div>
             <form name="form">
                 <div ng-if="!loading">
 
@@ -59,7 +62,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group" ng-if="!riskTier">
+                    <div class="form-group" ng-if="!riskTier && projects.length > 0">
                         <label for="select" class="control-label">Project</label>
                         <select
                             class="form-control"

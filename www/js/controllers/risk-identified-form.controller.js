@@ -36,17 +36,23 @@ app.controller("riskIdentifiedFormCtrl", function($scope, $rootScope, $route, $l
         });
     };
 
-    var findActivities = function() {
-        activityService.find().success(function(data, status) {
+    var findProjectsAvailableToRiskIdentifiedByUser = function() {
+        activityService.findAvailableToRiskIdentifiedByUser($rootScope.globals.currentUser.id).success(function(data, status) {
             $scope.activities = data.activities;
+
+            if ($scope.activities.length == 0)
+              $scope.error = 'No activities available.';
         }).error(function(data, status) {
             $scope.error = messages.unableToFetchItens;
         });
     };
 
-    var findProjects = function() {
-        projectService.find().success(function(data, status) {
+    var findActivitiesAvailableToRiskIdentifiedByUser = function() {
+        projectService.findAvailableToRiskIdentifiedByUser($rootScope.globals.currentUser.id).success(function(data, status) {
             $scope.projects = data.projects;
+
+            if ($scope.projects.length == 0)
+              $scope.error = 'No projects available.';
         }).error(function(data, status) {
             $scope.error = messages.unableToFetchItens;
         });
@@ -114,8 +120,8 @@ app.controller("riskIdentifiedFormCtrl", function($scope, $rootScope, $route, $l
         );
     };
 
-    findProjects();
-    findActivities();
+    findProjectsAvailableToRiskIdentifiedByUser();
+    findActivitiesAvailableToRiskIdentifiedByUser();
     findRisks();
 
 });
