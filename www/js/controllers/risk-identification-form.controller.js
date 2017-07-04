@@ -1,5 +1,5 @@
 app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope,
-  riskService, riskIdentificationService){
+  $location, $mdDialog, riskService, riskIdentificationService){
 
     var id_user = $rootScope.globals.currentUser.id;
     var id_risk = $route.current.params.id_risk;
@@ -12,7 +12,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
         });
     };
 
-    var findProjectsByUserAndRisk = function() {
+    var findProjects = function() {
         riskIdentificationService.findProjects(id_user, id_risk)
           .success(function(data, status) {
             $scope.projects = data.projects;
@@ -26,7 +26,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
         });
     };
 
-    var findActivitiesByUserAndRisk = function() {
+    var findActivities = function() {
         riskIdentificationService.findActivities(id_user, id_risk)
           .success(function(data, status) {
             $scope.activities = data.activities;
@@ -42,9 +42,20 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
 
     var insertRiskIdentification = function(risk_identification) {
         riskIdentificationService.insert(risk_identification).success(function(data) {
+            findProjects();
+            findActivities();
+        }).error(function(data, status) {
+            showAlert('Error', 'Unable to register risk identification');
+            $location.path('risk-identifications');
+        });
+    };
+
+    var removeRiskIdentification = function(id) {
+        riskIdentificationService.remove(id).success(function(data) {
 
         }).error(function(data, status) {
-            showAlert('Error', 'Unable to register risk identified');
+            showAlert('Error', 'Unable to remove risk identification');
+            $location.path('risk-identifications');
         });
     };
 
@@ -56,7 +67,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
                 id_project: obj.id
             });
         else
-        console.log(obj);
+            removeRiskIdentification(obj.risk_identification_id);
     };
 
     $scope.onActivityChange = function(obj) {
@@ -67,7 +78,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
                 id_activity: obj.id
             });
         else
-        console.log(obj);
+            removeRiskIdentification(obj.risk_identification_id);
     };
 
     var showAlert = function(title, message) {
@@ -81,7 +92,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
         );
     };
 
-    findProjectsByUserAndRisk();
-    findActivitiesByUserAndRisk();
+    findProjects();
+    findActivities();
     findRiskById();
 });

@@ -54,10 +54,10 @@ app.factory("riskIdentificationService", function($http, config) {
         })
     }
 
-    var _remove = function(risk_dentification) {
+    var _remove = function(risk_identification_id) {
         return $http({
            url: config.apiUrl + 'risk-identifications/'
-              + risk-identification.id,
+              + risk_identification_id,
            method: 'DELETE'
         });
     }
