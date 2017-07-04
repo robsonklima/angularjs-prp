@@ -14,6 +14,13 @@ app.factory("riskIdentifiedService", function($http, config) {
         });
     }
 
+    var _findByIdUser = function(id_user) {
+        return $http({
+            url: config.apiUrl + 'risk-identifieds/me/' + id_user,
+            method: 'GET'
+        });
+    }
+
     var _insert = function(risk_identified) {
         return $http({
             url: config.apiUrl + 'risk-identifieds/',
@@ -40,6 +47,7 @@ app.factory("riskIdentifiedService", function($http, config) {
     return {
         find: _find,
         findById: _findById,
+        findByIdUser: _findByIdUser,
         insert: _insert,
         update: _update,
         remove: _remove

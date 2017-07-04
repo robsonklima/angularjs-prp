@@ -22,10 +22,10 @@ app.controller("riskIdentifiedFormCtrl", function($scope, $rootScope, $route, $l
     };
 
     if ($route.current.params.id) {
-        $scope.pageTitle = 'Edit risk identitied';
+        $scope.pageTitle = 'Edit identitied risk';
         findById();
     } else {
-        $scope.pageTitle = 'New risk identitied';
+        $scope.pageTitle = 'New identitied risk';
     }
 
     var findRisks = function() {
