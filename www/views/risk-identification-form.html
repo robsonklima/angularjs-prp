@@ -1,105 +1,24 @@
 <div class="main-nav">
-    <div class="left-child"><a href="#/risk-identifications"><h5>
-        <i class="fa fa-chevron-left link-icon"></i></a></h5></div>
-    <div class="center-child"><h5>{{ pageTitle }}</h5></div>
-    <div class="right-child" ng-if="risk_identification.id"><a ng-click="remove(risk_identification)">
-        <h5><i class="fa fa-trash link-icon"></i></h5></a></div>
+    <div class="left-child"><a href="#/risk-identifications"><h5><i class="fa fa-chevron-left link-icon"></i></a></h5></div>
+    <div class="center-child"><h5>{{ risk.title }}</h5></div>
 </div>
 
 <div class="separator-large"></div>
 
 <div class="container">
-     <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-            <div class="loading" ng-show="loading">
-                <div class="loading-content">
-                    <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
-                    <span class="sr-only">Loading...</span>
-                </div>
-            </div>
-            <div class="alert alert-danger" ng-show="error && !loading">
-                <p><strong>Oops!</strong> {{ error }}</p>
-            </div>
-            <form name="form">
-                <div ng-if="!loading">
+   <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+          <md-subheader class="md-no-sticky">Projects</md-subheader>
+          <md-list-item ng-repeat="project in projects">
+              <p> {{ project.name }} </p>
+              <md-switch ng-model="project.selected" ng-change="onProjectChange(project)"></md-switch>
+          </md-list-item>
 
-                    <div class="form-group">
-                        <label class="control-label">Risk Tier</label>
-                        <md-switch ng-model="riskTier" ng-change="riskTierChange(riskTier)">
-                            {{ riskTierTitle }}
-                        </md-switch>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="select" class="control-label">Risk</label>
-                        <select
-                            class="form-control"
-                            name="risk"
-                            ng-required = "true"
-                            ng-model="risk_identification.id_risk"
-                            ng-options="risk.id as risk.title for risk in risks | orderBy:'title'">
-                            <option value="">Select risk</option>
-                        </select>
-                        <div ng-show="form.risk.$dirty" ng-messages="form.risk.$error">
-                            <p class="help-block-error" ng-message="required">
-                               Please, type this field.</p>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <md-input-container>
-                            <label class="control-label">Why do you thing that's a potential risk</label>
-                            <textarea
-                                md-maxlength="150"
-                                rows="3"
-                                md-select-on-focus
-                                required="true"
-                                ng-model="risk_identification.description"></textarea>
-                        </md-input-container>
-                        <div ng-show="form.description.$dirty" ng-messages="form.description.$error">
-                            <p class="help-block-error" ng-message="required">
-                               Please, type this field.</p>
-                        </div>
-                    </div>
-
-                    <div class="form-group" ng-if="!riskTier && projects.length > 0">
-                        <label for="select" class="control-label">Project</label>
-                        <select
-                            class="form-control"
-                            name="project"
-                            ng-required = "true"
-                            ng-model="risk_identification.id_project"
-                            ng-options="project.id as project.name for project in projects | orderBy:'name'">
-                            <option value="">Select project</option>
-                        </select>
-                        <div ng-show="form.project.$dirty" ng-messages="form.project.$error">
-                            <p class="help-block-error" ng-message="required">
-                               Please, type this field.</p>
-                        </div>
-                    </div>
-
-                    <div class="form-group" ng-if="riskTier">
-                        <label for="select" class="control-label">Acivity</label>
-                        <select
-                            class="form-control"
-                            name="activity"
-                            ng-required = "true"
-                            ng-model="risk_identification.id_activity"
-                            ng-options="activity.id as activity.title for activity in activities | orderBy:'name'">
-                            <option value="">Select activity</option>
-                        </select>
-                        <div ng-show="form.activity.$dirty" ng-messages="form.activity.$error">
-                            <p class="help-block-error" ng-message="required">
-                               Please, type this field.</p>
-                        </div>
-                    </div>
-
-                    <button
-                        class="btn btn-primary btn-block"
-                        ng-click="save(risk_identification)"
-                        ng-disabled="form.$invalid && !loading">Save</button>
-                </div>
-           </form>
-        </div>
-    </div>
+          <md-subheader class="md-no-sticky">Activities</md-subheader>
+          <md-list-item ng-repeat="activity in activities">
+              <p> {{ activity.title }} </p>
+              <md-switch ng-model="activity.selected" ng-change="onActivityChange(activity)"></md-switch>
+          </md-list-item>
+      </div>
+   </div>
 </div>

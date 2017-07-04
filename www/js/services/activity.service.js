@@ -14,6 +14,13 @@ app.factory("activityService", function($http, config) {
         });
     }
 
+    var _findByUserWithRiskIdent = function(id_user) {
+        return $http({
+            url: config.apiUrl + 'activities/with-risk-identifications/' + id_user,
+            method: 'GET'
+        });
+    }
+
     var _insert = function(activity) {
         return $http({
             url: config.apiUrl + 'activities/',
@@ -40,6 +47,7 @@ app.factory("activityService", function($http, config) {
     return {
         find: _find,
         findById: _findById,
+        findByUserWithRiskIdent: _findByUserWithRiskIdent,
         insert: _insert,
         update: _update,
         remove: _remove

@@ -1,85 +1,73 @@
-app.controller("riskIdentificationFormCtrl", function($scope, $rootScope, $route, $location, $mdDialog,
-    messages, projectService, activityService, riskService, riskIdentificationService){
+app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope,
+  riskService, riskIdentificationService){
 
-    $scope.riskTier = false;
-    $scope.riskTierTitle = 'Project Risk';
+    var id_user = $rootScope.globals.currentUser.id;
+    var id_risk = $route.current.params.id_risk;
 
-    $scope.riskTierChange = function(riskTier) {
-    	   $scope.riskTier = riskTier;
-         if (riskTier) {
-           $scope.riskTierTitle = "Activity Risk"
-         } else {
-           $scope.riskTierTitle = 'Project Risk';
-         }
-    };
-
-    var findById = function() {
-        riskIdentificationService.findById($route.current.params.id).success(function(data, status) {
-            $scope.risk_identification = data.risk_identification[0];
+    var findRiskById = function() {
+        riskService.findById(id_risk).success(function(data, status) {
+            $scope.risk = data.risk[0];
         }).error(function(data, status) {
-            showAlert('Error', 'Unable to find risk identification');
+            showAlert('Error', 'Unable to find risk');
         });
     };
 
-    if ($route.current.params.id) {
-        $scope.pageTitle = 'Edit identitied risk';
-        findById();
-    } else {
-        $scope.pageTitle = 'New identitied risk';
-    }
-
-    var findRisks = function() {
-        riskService.find().success(function(data, status) {
-            $scope.risks = data.risks;
-        }).error(function(data, status) {
-            $scope.error = messages.unableToFetchItens;
-        });
-    };
-
-    var findProjects = function() {
-        projectService.find().success(function(data, status) {
+    var findProjectsByUserAndRisk = function() {
+        riskIdentificationService.findProjects(id_user, id_risk)
+          .success(function(data, status) {
             $scope.projects = data.projects;
 
-            if ($scope.projects.length == 0)
-              $scope.error = 'No projects available.';
+            angular.forEach($scope.projects, function(value, i) {
+                if ($scope.projects[i].risk_identification_id)
+                    $scope.projects[i].selected = true;
+            }, $scope.projects);
         }).error(function(data, status) {
-            $scope.error = messages.unableToFetchItens;
+            $scope.error = 'Unable to fetch projects';
         });
     };
 
-    var findActivities = function() {
-        activityService.find().success(function(data, status) {
+    var findActivitiesByUserAndRisk = function() {
+        riskIdentificationService.findActivities(id_user, id_risk)
+          .success(function(data, status) {
             $scope.activities = data.activities;
 
-            if ($scope.activities.length == 0)
-              $scope.error = 'No activities available.';
+            angular.forEach($scope.activities, function(value, i) {
+                if ($scope.activities[i].risk_identification_id)
+                    $scope.activities[i].selected = true;
+            }, $scope.activities);
         }).error(function(data, status) {
-            $scope.error = messages.unableToFetchItens;
+            $scope.error = 'Unable to fetch activities';
         });
     };
 
-    var insert = function(risk_identification) {
+    var insertRiskIdentification = function(risk_identification) {
         riskIdentificationService.insert(risk_identification).success(function(data) {
-            showAlert('Message', 'Risk identification added successfully');
-            $location.path('risk-identifications');
+
         }).error(function(data, status) {
-            showAlert('Error', 'Unable to insert risk identified');
+            showAlert('Error', 'Unable to register risk identified');
         });
     };
 
-    $scope.save = function(risk_identification) {
-        if ($scope.riskTier)
-            risk_identification.id_project = null;
-            else
-            risk_identification.id_activity = null;
+    $scope.onProjectChange = function(obj) {
+    	  if (obj.selected)
+            insertRiskIdentification({
+                id_risk: id_risk,
+                id_user: id_user,
+                id_project: obj.id
+            });
+        else
+        console.log(obj);
+    };
 
-        risk_identification.id_user = $rootScope.globals.currentUser.id;
-
-        if ($route.current.params.id) {
-            update(risk_identification);
-        } else {
-            insert(risk_identification);
-        }
+    $scope.onActivityChange = function(obj) {
+        if (obj.selected)
+            insertRiskIdentification({
+                id_risk: id_risk,
+                id_user: id_user,
+                id_activity: obj.id
+            });
+        else
+        console.log(obj);
     };
 
     var showAlert = function(title, message) {
@@ -93,8 +81,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $rootScope, $route
         );
     };
 
-    findProjects();
-    findActivities();
-    findRisks();
-
+    findProjectsByUserAndRisk();
+    findActivitiesByUserAndRisk();
+    findRiskById();
 });
