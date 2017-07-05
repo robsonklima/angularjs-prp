@@ -1,5 +1,5 @@
 <div class="main-nav">
-    <div class="left-child"><a href="#/risk-identifications"><h5><i class="fa fa-chevron-left link-icon"></i></a></h5></div>
+    <div class="left-child"><a href="#/risk-problems"><h5><i class="fa fa-chevron-left link-icon"></i></a></h5></div>
     <div class="center-child"><h5>{{ risk.title }}</h5></div>
 </div>
 
@@ -11,13 +11,13 @@
           <md-subheader class="md-no-sticky">Projects</md-subheader>
           <md-list-item ng-repeat="project in projects">
               <p> {{ project.name }} </p>
-              <md-switch ng-model="project.selected" ng-change="onProjectChange(project)"
+              <md-switch ng-model="project.selected" ng-change="onSwitchChange(project)"
                 ng-disabled="loading"></md-switch>
           </md-list-item>
           <md-subheader class="md-no-sticky">Activities</md-subheader>
           <md-list-item ng-repeat="activity in activities">
               <p> {{ activity.title }} </p>
-              <md-switch ng-model="activity.selected" ng-change="onActivityChange(activity)"
+              <md-switch ng-model="activity.selected" ng-change="onSwitchChange(activity)"
                 ng-disabled="loading"></md-switch>
           </md-list-item>
       </div>

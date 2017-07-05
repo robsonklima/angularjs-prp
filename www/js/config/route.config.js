@@ -61,6 +61,14 @@ app.config(function ($routeProvider, $httpProvider) {
        templateUrl: "views/risk-identification-form.html",
        controller: "riskIdentificationFormCtrl"
     });
+    $routeProvider.when("/risk-problems", {
+       templateUrl: "views/risk-problems.html",
+       controller: "riskProblemsCtrl"
+    });
+    $routeProvider.when("/risk-problem-form/:id_risk", {
+       templateUrl: "views/risk-problem-form.html",
+       controller: "riskProblemFormCtrl"
+    });
 
     // Error
     $routeProvider.when("/error", {
