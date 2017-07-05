@@ -8,18 +8,26 @@
 <div class="container">
    <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-          <md-subheader class="md-no-sticky">Projects</md-subheader>
-          <md-list-item ng-repeat="project in projects">
-              <p> {{ project.name }} </p>
-              <md-switch ng-model="project.selected" ng-change="onProjectChange(project)"
-                ng-disabled="loading"></md-switch>
-          </md-list-item>
-          <md-subheader class="md-no-sticky">Activities</md-subheader>
-          <md-list-item ng-repeat="activity in activities">
-              <p> {{ activity.title }} </p>
-              <md-switch ng-model="activity.selected" ng-change="onActivityChange(activity)"
-                ng-disabled="loading"></md-switch>
-          </md-list-item>
+          <div class="loading" ng-show="loading">
+              <div class="loading-content">
+                  <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+                  <span class="sr-only">Loading...</span>
+              </div>
+          </div>
+          <div ng-show="!loading">
+              <md-subheader class="md-no-sticky">Projects</md-subheader>
+              <md-list-item ng-repeat="project in projects">
+                  <p> {{ project.name }} </p>
+                  <md-switch ng-model="project.selected" ng-change="onProjectChange(project)"
+                    ng-disabled="loading"></md-switch>
+              </md-list-item>
+              <md-subheader class="md-no-sticky">Activities</md-subheader>
+              <md-list-item ng-repeat="activity in activities">
+                  <p> {{ activity.title }} </p>
+                  <md-switch ng-model="activity.selected" ng-change="onActivityChange(activity)"
+                    ng-disabled="loading"></md-switch>
+              </md-list-item>
+        </div>
       </div>
    </div>
 </div>
