@@ -159,7 +159,7 @@ body a {
 }
 
 .center-text {
-    text-align: center; 
+    text-align: center;
 }
 
 .loading-content {
@@ -249,7 +249,7 @@ md-input-container label {
 
 .fab-speed-dial {
     position: fixed;
-    bottom: 6%;
+    bottom: 4%;
     right: 8%;
 }
 
