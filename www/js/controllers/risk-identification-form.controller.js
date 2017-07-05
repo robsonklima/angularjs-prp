@@ -9,6 +9,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
             $scope.risk = data.risk[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find risk');
+            $location.path('risk-identifications');
         });
     };
 
@@ -92,7 +93,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
         );
     };
 
+    findRiskById();
     findProjects();
     findActivities();
-    findRiskById();
 });
