@@ -1,29 +1,29 @@
 <div ng-controller="sideNavCtrl">
   <section layout="row" flex>
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
-
       <md-toolbar>
         <div class="main-nav">
-            <div class="left-child"><h5><a ng-click="toggleLeft()"><i class="fa fa-bars link-icon"></i></a></h5></div>
+            <div class="left-child"><h5><a ng-click="toggleLeft()">
+              <i class="fa fa-bars link-icon"></i></a></h5></div>
             <div class="center-child"><h5>Menu</h5></div>
         </div>
       </md-toolbar>
 
       <md-content layout-margin>
           <div class="list-group list-group-nav">
-              <a class="list-group-item list-group-item-nav" href="#/projects" ng-click="toggleLeft()">
+              <a class="list-group-item lg-nav" href="#/projects" ng-click="toggleLeft()">
                 <i class="fa fa-briefcase fa-fw"></i> Projects</a>
-              <a class="list-group-item list-group-item-nav" href="#/activities" ng-click="toggleLeft()">
-                <i class="fa fa-clone fa-fw"></i> Activities</a>
-              <a class="list-group-item list-group-item-nav"  href="#/risks" ng-click="toggleLeft()">
+              <a class="list-group-item lg-nav" href="#/activities" ng-click="toggleLeft()">
+                <i class="fa fa-calendar fa-fw"></i> Activities</a>
+              <a class="list-group-item lg-nav"  href="#/risks" ng-click="toggleLeft()">
                 <i class="fa fa-exclamation fa-fw"></i> Risks</a>
-              <a class="list-group-item list-group-item-nav"  href="#/risk-identifications" ng-click="toggleLeft()">
-                <i class="fa fa-bookmark-o fa-fw"></i> Identify a Risk</a>
-              <a class="list-group-item list-group-item-nav"  href="#/risk-problems" ng-click="toggleLeft()">
-                  <i class="fa fa-warning fa-fw"></i> Mark Risk as Problem</a>
-              <a class="list-group-item list-group-item-nav" ng-click="toggleLeft()">
+              <a class="list-group-item lg-nav"  href="#/risk-identifications" ng-click="toggleLeft()">
+                <i class="fa fa-tags fa-fw"></i> Identify a Risk</a>
+              <a class="list-group-item lg-nav"  href="#/risk-problems" ng-click="toggleLeft()">
+                  <i class="fa fa-thumb-tack fa-fw"></i> Mark a Problem</a>
+              <a class="list-group-item lg-nav" ng-click="toggleLeft()">
                 <i class="fa fa-bar-chart-o fa-fw"></i> Reportings</a>
-              <a class="list-group-item list-group-item-nav" href="#/login" ng-click="toggleLeft()">
+              <a class="list-group-item lg-nav" href="#/login" ng-click="toggleLeft()">
                 <i class="fa fa-sign-out fa-fw"></i> Sign-out</a>
           </div>
       </md-content>
@@ -32,7 +32,8 @@
     <md-content flex layout-padding>
       <div layout="column">
         <div class="main-nav">
-            <div class="left-child"><h5><a ng-click="toggleLeft()"><i class="fa fa-bars link-icon"></i></a></h5></div>
+            <div class="left-child"><h5><a ng-click="toggleLeft()">
+              <i class="fa fa-bars link-icon"></i></a></h5></div>
             <div class="center-child"><h5>Project Risk Prediction</h5></div>
             <div class="right-child"><a><h5><i class="fa fa-question link-icon"></i></h5></a></div>
         </div>

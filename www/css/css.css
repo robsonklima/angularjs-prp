@@ -72,9 +72,9 @@ body a {
     margin: 15px 0 0 0 !important;
 }
 
-.list-group-item-nav {
+.lg-nav {
     border: 0px;
-    padding: 2 0 2 16px !important;
+    padding: 2 0 2 22px !important;
     color: #2196F3 !important;
 }
 
@@ -255,4 +255,12 @@ md-input-container label {
 
 md-tooltip {
     opacity: 0.6;
+}
+
+.back-top {
+    margin-top: 12px;
+}
+
+.md-wb {
+    background-color: white;
 }

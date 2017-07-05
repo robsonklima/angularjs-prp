@@ -23,7 +23,7 @@
                   <h4 class="list-group-item-heading">
                        {{ risk.title }}
                   </h4>
-                  <p class="list-group-item-text">{{ risk.cause }}</p>
+                  <p class="list-group-item-text">{{ risk.cause | ellipsis:80 }}</p>
                   <span class="label label-primary">
                       <i class="fa fa-save fa-fw" aria-hidden="true"></i>
                       {{ risk.added_date | date:'dd/MM HH:mm' }}</span>
@@ -34,8 +34,7 @@
                       {{ risk.risk_type_name }}</span>
                   <span class="label label-primary">
                       <i class="fa fa-cubes fa-fw" aria-hidden="true"></i>
-                      {{ risk.risk_category_name }}</span>
-              </a>
+                      {{ risk.risk_category_name }}</span></a>
         </div>
       </div>
    </div>
