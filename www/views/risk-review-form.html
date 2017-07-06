@@ -1,103 +1,158 @@
 <div class="main-nav">
-    <div class="left-child"><a href="#/risk-reviews"><h5><i class="fa fa-chevron-left link-icon"></i></a></h5></div>
-    <div class="center-child"><h5>Risk Review</h5></div>
+  <div class="left-child"><a href="#/risk-reviews"><h5><i class="fa fa-chevron-left link-icon"></i></a></h5>
+  </div>
+  <div class="center-child">
+    <h5>Risk Review</h5></div>
 </div>
 
 <div class="separator-large"></div>
 
 <div class="container">
-   <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-        <md-content class="md-padding" ng-show="!loading">
-          <md-tabs
-            md-dynamic-height
-            md-border-bottom
-            md-selected="tabsConfig.index"
-            md-swipe-left="onSwipeLeft()"
-            md-swipe-right="onSwipeRight()">
-            <md-tab>
-              <md-tab-label>
-                  <i class="fa fa-info-circle fa-2x fa-fw" aria-hidden="true"></i>
-              </md-tab-label>
-              <md-tab-body>
-                <div class="tab-title">
-                  <h5>Ask 1</h5>
-                </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+      <md-content class="md-padding" ng-show="!loading">
+        <md-tabs md-dynamic-height md-border-bottom md-selected="tabsConfig.index">
+          <md-tab>
+            <md-tab-label>
+              <i class="fa fa-money fa-2x fa-fw" aria-hidden="true"></i>
+            </md-tab-label>
+            <md-tab-body>
+              <div class="tab-title">
+                <h5>Cost</h5>
+              </div>
+              <md-radio-group ng-click="moveTab()" ng-model="riskReview.cost">
+                <md-radio-button
+                    ng-repeat="riskReviewReference in riskReviewReferences
+                    | filter: { riskReviewReferenceType: 'COST' }"
+                    value="{{ riskReviewReference.riskReviewReferenceId }}">
+                      {{ riskReviewReference.riskReviewReferenceTitle }}
+                </md-radio-button>
+              </md-radio-group>
+            </md-tab-body>
+          </md-tab>
 
-                <md-radio-group>
-                  <br/>
-                  <md-radio-button value="0">Apple</md-radio-button>
-                  <md-radio-button value="1">Banana</md-radio-button>
-                  <md-radio-button value="2">Mango</md-radio-button>
-                  <md-radio-button value="3">Letuce</md-radio-button>
-                  <md-radio-button value="4">Cabbage</md-radio-button>
-                </md-radio-group>
+          <md-tab>
+            <md-tab-label>
+              <i class="fa fa-calendar-o fa-2x fa-fw" aria-hidden="true"></i>
+            </md-tab-label>
+            <md-tab-body>
+              <div class="tab-title">
+                <h5>Schedule</h5>
+              </div>
+              <md-radio-group ng-click="moveTab()" ng-model="riskReview.schedule">
+                <md-radio-button
+                    ng-repeat="riskReviewReference in riskReviewReferences
+                    | filter: { riskReviewReferenceType: 'SCHEDULE' }"
+                    value="{{ riskReviewReference.riskReviewReferenceId }}">
+                      {{ riskReviewReference.riskReviewReferenceTitle }}
+                </md-radio-button>
+              </md-radio-group>
+            </md-tab-body>
+          </md-tab>
 
-                <hr />
+          <md-tab>
+            <md-tab-label>
+              <i class="fa fa-picture-o fa-2x fa-fw" aria-hidden="true"></i>
+            </md-tab-label>
+            <md-tab-body>
+              <div class="tab-title">
+                <h5>Scope</h5>
+              </div>
+              <md-radio-group ng-click="moveTab()" ng-model="riskReview.scope">
+                <md-radio-button
+                    ng-repeat="riskReviewReference in riskReviewReferences
+                    | filter: { riskReviewReferenceType: 'SCOPE' }"
+                    value="{{ riskReviewReference.riskReviewReferenceId }}">
+                      {{ riskReviewReference.riskReviewReferenceTitle }}
+                </md-radio-button>
+              </md-radio-group>
+            </md-tab-body>
+          </md-tab>
 
-              </md-tab-body>
-            </md-tab>
+          <md-tab>
+            <md-tab-label>
+              <i class="fa fa-diamond fa-2x fa-fw" aria-hidden="true"></i>
+            </md-tab-label>
+            <md-tab-body>
+              <div class="tab-title">
+                <h5>Quality</h5>
+              </div>
+              <md-radio-group ng-click="moveTab()" ng-model="riskReview.quality">
+                <md-radio-button
+                    ng-repeat="riskReviewReference in riskReviewReferences
+                    | filter: { riskReviewReferenceType: 'QUALITY' }"
+                    value="{{ riskReviewReference.riskReviewReferenceId }}">
+                      {{ riskReviewReference.riskReviewReferenceTitle }}
+                </md-radio-button>
+              </md-radio-group>
+            </md-tab-body>
+          </md-tab>
 
-            <md-tab>
-              <md-tab-label>
-                  <i class="fa fa-pencil-square-o fa-2x fa-fw" aria-hidden="true"></i>
-              </md-tab-label>
-              <md-tab-body>
-                <div class="tab-title">
-                  <h5>Ask 2</h5>
-                </div>
+          <md-tab>
+            <md-tab-label>
+              <i class="fa fa-line-chart fa-2x fa-fw" aria-hidden="true"></i>
+            </md-tab-label>
+            <md-tab-body>
+              <div class="tab-title">
+                <h5>Probability</h5>
+              </div>
+              <md-radio-group ng-click="moveTab()" ng-model="riskReview.probability">
+                <md-radio-button
+                    ng-repeat="riskReviewReference in riskReviewReferences
+                    | filter: { riskReviewReferenceType: 'PROBABILITY' }"
+                    value="{{ riskReviewReference.riskReviewReferenceId }}">
+                      {{ riskReviewReference.riskReviewReferenceTitle }}
+                </md-radio-button>
+              </md-radio-group>
+            </md-tab-body>
+          </md-tab>
 
-                <md-radio-group>
-                  <br/>
-                  <md-radio-button value="0">Apple</md-radio-button>
-                  <md-radio-button value="1">Banana</md-radio-button>
-                  <md-radio-button value="2">Mango</md-radio-button>
-                  <md-radio-button value="3">Letuce</md-radio-button>
-                  <md-radio-button value="4">Cabbage</md-radio-button>
-                </md-radio-group>
+          <md-tab ng-disabled="!riskReview.cost || !riskReview.schedule || !riskReview.scope
+            || !riskReview.quality || !riskReview.probability">
+            <md-tab-label>
+              <i class="fa fa-check fa-2x fa-fw" aria-hidden="true"></i>
+            </md-tab-label>
+            <md-tab-body>
+              <div class="tab-title">
+                <h5>Confirm</h5>
+              </div>
+              
+              <md-subheader class="md-no-sticky">Cost</md-subheader>
+              <md-list-item>
+                  <p>{{ (riskReviewReferences | filter:{riskReviewReferenceId:riskReview.cost})[0]
+                    .riskReviewReferenceTitle }}</p>
+              </md-list-item>
 
-                <hr />
+              <md-subheader class="md-no-sticky">Schedule</md-subheader>
+              <md-list-item>
+                  <p>{{ (riskReviewReferences | filter:{riskReviewReferenceId:riskReview.schedule})[0]
+                    .riskReviewReferenceTitle }}</p>
+              </md-list-item>
 
-              </md-tab-body>
-            </md-tab>
+              <md-subheader class="md-no-sticky">Scope</md-subheader>
+              <md-list-item>
+                  <p>{{ (riskReviewReferences | filter:{riskReviewReferenceId:riskReview.scope})[0]
+                    .riskReviewReferenceTitle }}</p>
+              </md-list-item>
 
-            <md-tab>
-              <md-tab-label>
-                  <i class="fa fa-pencil-square-o fa-2x fa-fw" aria-hidden="true"></i>
-              </md-tab-label>
-              <md-tab-body>
-                <div class="tab-title">
-                  <h5>Ask 3</h5>
-                </div>
-                <div style="height: 400px;"></div>
-              </md-tab-body>
-            </md-tab>
+              <md-subheader class="md-no-sticky">Quality</md-subheader>
+              <md-list-item>
+                  <p>{{ (riskReviewReferences | filter:{riskReviewReferenceId:riskReview.quality})[0]
+                    .riskReviewReferenceTitle }}</p>
+              </md-list-item>
 
-            <md-tab>
-              <md-tab-label>
-                  <i class="fa fa-pencil-square-o fa-2x fa-fw" aria-hidden="true"></i>
-              </md-tab-label>
-              <md-tab-body>
-                <div class="tab-title">
-                  <h5>Ask 4</h5>
-                </div>
-                <div style="height: 400px;"></div>
-              </md-tab-body>
-            </md-tab>
+              <md-subheader class="md-no-sticky">Probability</md-subheader>
+              <md-list-item>
+                  <p>{{ (riskReviewReferences | filter:{riskReviewReferenceId:riskReview.probability})[0]
+                    .riskReviewReferenceTitle }}</p>
+              </md-list-item>
 
-            <md-tab>
-              <md-tab-label>
-                  <i class="fa fa-pencil-square-o fa-2x fa-fw" aria-hidden="true"></i>
-              </md-tab-label>
-              <md-tab-body>
-                <div class="tab-title">
-                  <h5>Ask 5</h5>
-                </div>
-                <div style="height: 400px;"></div>
-              </md-tab-body>
-            </md-tab>
-          </md-tabs>
-        </md-content>
-      </div>
-   </div>
+              <button class="btn btn-primary btn-block back-top back-bottom">
+                  <i class="fa fa-check fa-!x fa-fw" aria-hidden="true"></i> Save</button>
+            </md-tab-body>
+          </md-tab>
+        </md-tabs>
+      </md-content>
+    </div>
+  </div>
 </div>

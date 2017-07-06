@@ -212,6 +212,7 @@ md-select-menu {
     padding-top: 8px;
     padding-bottom: 8px;
     border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 20px;
 }
 
 md-content {
@@ -262,10 +263,14 @@ md-tooltip {
     margin-top: 12px;
 }
 
+.back-bottom {
+    margin-bottom: 12px;
+}
+
 .md-wb {
     background-color: white;
 }
 
 .list-group-item-text {
-  margin-bottom: 6px;
+    margin-bottom: 6px;
 }

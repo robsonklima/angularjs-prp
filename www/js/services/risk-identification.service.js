@@ -14,9 +14,9 @@ app.factory("riskIdentificationService", function($http, config) {
         });
     }
 
-    var _findByIdUser = function(userId) {
+    var _findByUserId = function(userId) {
         return $http({
-            url: config.apiUrl + 'risk-identifications/me/' + userId,
+            url: config.apiUrl + 'risk-identifications/' + userId,
             method: 'GET'
         });
     }
@@ -65,7 +65,7 @@ app.factory("riskIdentificationService", function($http, config) {
     return {
         find: _find,
         findById: _findById,
-        findByIdUser: _findByIdUser,
+        findByUserId: _findByUserId,
         findProjects: _findProjects,
         findActivities: _findActivities,
         insert: _insert,

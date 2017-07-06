@@ -11,39 +11,37 @@
          <div class="loading" ng-show="loading">
               <div class="loading-content">
                   <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
-                  <span class="sr-only">Loading...</span>
-              </div>
-         </div>
+                  <span class="sr-only">Loading...</span></div></div>
 
-         <div class="form-group" ng-show="!loading && riskReviews.length > 0">
+         <div class="form-group" ng-show="!loading && riskIdentifications.length > 0">
             <input
               type="text"
               class="form-control center-text"
               placeholder="What are you searching?"
-              ng-model="searchCriteria">
-         </div>
+              ng-model="searchCriteria"></div>
 
          <div class="list-group table-of-contents" ng-show="!loading">
               <a
                   class="list-group-item"
-                  href="#/risk-review-form/{{ riskReview.riskIdentificationId }}"
-                  ng-repeat="riskReview in riskReviews | filter:searchCriteria track by riskReview.riskIdentificationId">
+                  href="#/risk-review-form/{{ riskIdentification.riskIdentificationId }}"
+                  ng-repeat="riskIdentification in riskIdentifications | filter:searchCriteria
+                    track by riskIdentification.riskIdentificationId">
                   <h4 class="list-group-item-heading">
-                       {{ riskReview.riskTitle }}
+                      {{ riskIdentification.riskTitle }}
                   </h4>
-                  <p class="list-group-item-text">{{ riskReview.riskCause | ellipsis:80 }}</p>
+                  <p class="list-group-item-text">
+                      {{ riskIdentification.riskCause | ellipsis:80 }}
+                  </p>
 
-                  <span class="label"
-                      ng-class="{'label-info': riskReview.projectName, 'label-warning': riskReview.activityTitle}">
-                      {{ riskReview.projectName ? 'Project Risk' : 'Activity Risk' }}</span>
+                  <span
+                      class="label"
+                      ng-class="{'label-info': riskIdentification.projectName, 'label-warning': riskIdentification.activityTitle}">
+                      {{ riskIdentification.projectName ? 'Project Risk' : 'Activity Risk' }}</span>
                   <span class="label label-primary">
-                      {{ riskReview.projectName ? riskReview.projectName : riskReview.activityTitle }}</span>
-              </a>
-         </div>
+                      {{ riskIdentification.projectName ? riskIdentification.projectName : riskIdentification.activityTitle }}</span></a></div>
 
          <div class="center-text" ng-show="risks_reviews.length == 0 && !loading">
-             <p>No results.</p>
-         </div>
+             <p>No results.</p></div>
       </div>
    </div>
 </div>

@@ -1,35 +1,19 @@
-app.controller("riskReviewFormCtrl", function($scope, $route, $rootScope,
-  riskService, riskReviewService){
-
+app.controller("riskReviewFormCtrl", function($scope, $timeout, $route, $rootScope,
+  riskService, riskReviewService, riskReviewReferenceService){
     $scope.tabsConfig = { index: 0 };
-    $scope.onSwipeLeft = function(ev) {
-        $scope.tabsConfig.index = Math.min($scope.tabsConfig.index + 1, 4) ;
+    $scope.moveTab = function() {
+        $timeout(function () {
+            $scope.tabsConfig.index = Math.min($scope.tabsConfig.index + 1, 5);
+        }, 350);
     };
 
-    $scope.onSwipeRight = function(ev) {
-        $scope.tabsConfig.index = Math.max($scope.tabsConfig.index - 1, 0);
+    var findRiskReviewReferences = function() {
+        riskReviewReferenceService.findRiskReviewReferences().success(function (data) {
+            $scope.riskReviewReferences = data.riskReviewReferences;
+        }).error(function (data, status) {
+            $scope.error = "Unable to fetch references";
+        });
     };
 
-    self.contacts = [{
-      'id': 1,
-      'fullName': 'Maria Guadalupe',
-      'lastName': 'Guadalupe',
-      'title': "CEO, Found"
-    }, {
-      'id': 2,
-      'fullName': 'Gabriel García Marquéz',
-      'lastName': 'Marquéz',
-      'title': "VP Sales & Marketing"
-    }, {
-      'id': 3,
-      'fullName': 'Miguel de Cervantes',
-      'lastName': 'Cervantes',
-      'title': "Manager, Operations"
-    }, {
-      'id': 4,
-      'fullName': 'Pacorro de Castel',
-      'lastName': 'Castel',
-      'title': "Security"
-    }];
-
+    findRiskReviewReferences();
 });

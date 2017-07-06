@@ -17,7 +17,7 @@
                 ng-disabled="loading"></md-switch>
           </md-list-item>
 
-          <div class="center-text back-top" ng-show="!projects && !loading">
+          <div class="center-text back-top" ng-show="projects.length == 0 && !loading">
               <p>No Projects</p>
           </div>
 
