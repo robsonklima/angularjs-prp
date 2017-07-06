@@ -26,7 +26,7 @@
                 <h4 class="list-group-item-heading">
                      {{ activity.activity_title }}
                 </h4>
-                <p class="list-group-item-text">{{ activity.activity_details }}</p>
+                <p class="list-group-item-text">{{ activity.activity_details | ellipsis:70 }}</p>
                 <span class="label label-primary">
                     <i class="fa fa-save fa-fw" aria-hidden="true"></i>
                     {{ activity.activity_added_date | date:'dd/MM' }}</span>
