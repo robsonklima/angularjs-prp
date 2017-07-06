@@ -7,9 +7,9 @@ app.factory("userService", function($http, config) {
         });
     }
 
-    var _findById = function(id) {
+    var _findById = function(userId) {
         return $http({
-            url: config.apiUrl + 'users/' + id,
+            url: config.apiUrl + 'users/' + userId,
             method: 'GET'
         });
     }
@@ -24,7 +24,7 @@ app.factory("userService", function($http, config) {
 
     var _update = function(user) {
         return $http({
-           url: config.apiUrl + 'users/' + user.id,
+           url: config.apiUrl + 'users/' + user.userId,
            method: 'PUT',
            data: user
         })
@@ -32,7 +32,7 @@ app.factory("userService", function($http, config) {
 
     var _remove = function(user) {
         return $http({
-           url: config.apiUrl + 'users/' + user.id,
+           url: config.apiUrl + 'users/' + user.userId,
            method: 'DELETE'
         });
     }

@@ -28,22 +28,22 @@
           <div class="list-group table-of-contents" ng-show="!loading">
             <a
                 class="list-group-item"
-                href="#/project-form/{{ project.project_id }}"
+                href="#/project-form/{{ project.projectId }}"
                 ng-repeat="project in projects | filter:searchCriteria | orderBy:'name'">
-                <span class="badge badge-2">{{ project.project_id }}</span>
+                <span class="badge badge-2">{{ project.projectId }}</span>
                 <h4 class="list-group-item-heading">
-                     {{ project.project_name }}
+                     {{ project.projectName }}
                 </h4>
-                <p class="list-group-item-text">{{ project.project_scope | ellipsis:80 }}</p>
+                <p class="list-group-item-text">{{ project.projectScope | ellipsis:80 }}</p>
                 <span class="label label-primary">
                     <i class="fa fa-save fa-fw" aria-hidden="true"></i>
-                    {{ project.project_added_date | date:'dd/MM HH:mm' }}</span>
+                    {{ project.projectAddedDate | date:'dd/MM HH:mm' }}</span>
                 <span class="label label-default">
                     <i class="fa fa-clone fa-fw" aria-hidden="true"></i>
-                    {{ project.project_amount_activities }} activities</span>
+                    {{ project.projectAmountActivities }} activities</span>
             </a>
           </div>
-          
+
           <div class="center-text" ng-show="projects.length == 0 && !loading">
                 <p>No results.</p>
           </div>

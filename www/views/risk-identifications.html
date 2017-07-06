@@ -27,8 +27,8 @@
           <div class="list-group" ng-show="!loading">
               <a
                 class="list-group-item"
-                href="#/risk-identification-form/{{ risk.risk_id }}"
-                ng-repeat="risk in risks | filter:searchCriteria track by risk.risk_id">{{ risk.risk_title }}</a>
+                href="#/risk-identification-form/{{ risk.riskId }}"
+                ng-repeat="risk in risks | filter:searchCriteria track by risk.riskId">{{ risk.riskTitle }}</a>
          </div>
 
          <div class="center-text" ng-show="!risks && !loading">

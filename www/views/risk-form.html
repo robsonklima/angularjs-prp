@@ -2,7 +2,7 @@
     <div class="left-child"><a href="#/risks"><h5>
         <i class="fa fa-chevron-left link-icon"></i></a></h5></div>
     <div class="center-child"><h5>{{ pageTitle }}</h5></div>
-    <div class="right-child" ng-if="risk.risk_id"><a ng-click="remove(risk)">
+    <div class="right-child" ng-if="risk.riskId"><a ng-click="remove(risk)">
         <h5><i class="fa fa-trash link-icon"></i></h5></a></div>
 </div>
 
@@ -26,11 +26,11 @@
                           class="form-control"
                           type="text"
                           placeholder="Risk title"
-                          name="risk_title"
-                          ng-model="risk.risk_title"
+                          name="riskTitle"
+                          ng-model="risk.riskTitle"
                           ng-required="true"
                           ng-minlength="5"/>
-                       <div ng-show="form.risk_title.$dirty" ng-messages="form.risk_title.$error">
+                       <div ng-show="form.riskTitle.$dirty" ng-messages="form.riskTitle.$error">
                            <p class="help-block-error" ng-message="required">
                               Please, type this field.</p>
                            <p class="help-block-error" ng-message="minlength">
@@ -42,14 +42,14 @@
                         <md-input-container>
                             <label class="control-label">Cause</label>
                             <textarea
-                                name="risk_cause"
+                                name="riskCause"
                                 md-maxlength="150"
                                 rows="3"
                                 md-select-on-focus
                                 ng-required="true"
-                                ng-model="risk.risk_cause"></textarea>
+                                ng-model="risk.riskCause"></textarea>
                         </md-input-container>
-                        <div ng-show="form.risk_cause.$dirty" ng-messages="form.risk_cause.$error">
+                        <div ng-show="form.riskCause.$dirty" ng-messages="form.riskCause.$error">
                             <p class="help-block-error" ng-message="required">
                                Please, type this field.</p>
                         </div>
@@ -59,14 +59,14 @@
                         <md-input-container>
                             <label class="control-label">Effect</label>
                             <textarea
-                                name="risk_effect"
+                                name="riskEffect"
                                 md-maxlength="150"
                                 rows="3"
                                 md-select-on-focus
                                 ng-required="true"
-                                ng-model="risk.risk_effect"></textarea>
+                                ng-model="risk.riskEffect"></textarea>
                         </md-input-container>
-                        <div ng-show="form.risk_effect.$dirty" ng-messages="form.risk_effect.$error">
+                        <div ng-show="form.riskEffect.$dirty" ng-messages="form.riskEffect.$error">
                             <p class="help-block-error" ng-message="required">
                                Please, type this field.</p>
                         </div>
@@ -76,13 +76,13 @@
                         <label for="select" class="control-label">Risk Type</label>
                         <select
                             class="form-control"
-                            name="risk_type"
+                            name="riskTypeId"
                             ng-required = "true"
-                            ng-model="risk.risk_type_id"
-                            ng-options="risk_type.risk_type_id as risk_type.risk_type_name for risk_type in risk_types | orderBy:'risk_type_name'">
+                            ng-model="risk.riskTypeId"
+                            ng-options="riskType.riskTypeId as riskType.riskTypeName for riskType in riskTypes | orderBy:'riskTypeName'">
                             <option value="">Select risk type</option>
                         </select>
-                        <div ng-show="form.risk_type.$dirty" ng-messages="form.risk_type.$error">
+                        <div ng-show="form.riskTypeId.$dirty" ng-messages="form.riskTypeId.$error">
                             <p class="help-block-error" ng-message="required">
                                Please, type this field.</p>
                         </div>
@@ -92,13 +92,13 @@
                         <label for="select" class="control-label">Risk Category</label>
                         <select
                             class="form-control"
-                            name="risk_category"
+                            name="riskCategoryId"
                             ng-required = "true"
-                            ng-model="risk.risk_category_id"
-                            ng-options="risk_category.risk_category_id as risk_category.risk_category_name for risk_category in risk_categories | orderBy:'risk_category_name'">
+                            ng-model="risk.riskCategoryId"
+                            ng-options="riskCategory.riskCategoryId as riskCategory.riskCategoryName for riskCategory in riskCategories | orderBy:'riskCategoryName'">
                             <option value="">Select risk type</option>
                         </select>
-                        <div ng-show="form.risk_type.$dirty" ng-messages="form.risk_type.$error">
+                        <div ng-show="form.riskCategoryId.$dirty" ng-messages="form.riskCategoryId.$error">
                             <p class="help-block-error" ng-message="required">
                                Please, type this field.</p>
                         </div>

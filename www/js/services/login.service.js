@@ -1,6 +1,8 @@
 app.factory("loginService", function($http, $rootScope, $cookieStore, base64Factory, config) {
 
     var _login = function(user) {
+
+        console.log(user);
         return $http({
            url: config.apiUrl + 'users/me',
            method: 'POST',
@@ -9,7 +11,7 @@ app.factory("loginService", function($http, $rootScope, $cookieStore, base64Fact
     }
 
     var _setCredentials = function (user) {
-        var authdata = base64Factory.encode(user.user_email + ':' + user.user_password);
+        var authdata = base64Factory.encode(user.userEmail + ':' + user.userPassword);
 
         $rootScope.globals = { currentUser: user };
 

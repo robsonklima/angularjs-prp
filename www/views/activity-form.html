@@ -2,7 +2,7 @@
     <div class="left-child"><a href="#/activities"><h5>
         <i class="fa fa-chevron-left link-icon"></i></a></h5></div>
     <div class="center-child"><h5>{{ pageTitle }}</h5></div>
-    <div class="right-child" ng-if="activity.activity_id"><a ng-click="remove(activity)">
+    <div class="right-child" ng-if="activity.activityId"><a ng-click="remove(activity)">
         <h5><i class="fa fa-trash link-icon"></i></h5></a></div>
 </div>
 
@@ -25,11 +25,11 @@
                           class="form-control"
                           type="text"
                           placeholder="Activity title"
-                          name="activity_title"
-                          ng-model="activity.activity_title"
+                          name="activityTitle"
+                          ng-model="activity.activityTitle"
                           ng-required="true"
                           ng-minlength="5"/>
-                       <div ng-show="form.activity_title.$dirty" ng-messages="form.activity_title.$error">
+                       <div ng-show="form.activityTitle.$dirty" ng-messages="form.activityTitle.$error">
                            <p class="help-block-error" ng-message="required">
                               Please, type this field.</p>
                            <p class="help-block-error" ng-message="minlength">
@@ -43,10 +43,10 @@
                           class="form-control"
                           type="text"
                           placeholder="Amount hours"
-                          name="activity_amount_hours"
-                          ng-model="activity.activity_amount_hours"
+                          name="activityAmountHours"
+                          ng-model="activity.activityAmountHours"
                           ng-required="true"/>
-                       <div ng-show="form.activity_amount_hours.$dirty" ng-messages="form.activity_amount_hours.$error">
+                       <div ng-show="form.activityAmountHours.$dirty" ng-messages="form.activityAmountHours.$error">
                            <p class="help-block-error" ng-message="required">
                               Please, type this field.</p>
                        </div>
@@ -59,7 +59,7 @@
                                 md-maxlength="150"
                                 rows="3"
                                 md-select-on-focus
-                                ng-model="activity.activity_details"></textarea>
+                                ng-model="activity.activityDetails"></textarea>
                         </md-input-container>
                     </div>
 
@@ -69,8 +69,8 @@
                             class="form-control"
                             name="project"
                             ng-required = "true"
-                            ng-model="activity.project_id"
-                            ng-options="project.project_id as project.project_name for project in projects | orderBy:'project_name'">
+                            ng-model="activity.projectId"
+                            ng-options="project.projectId as project.projectName for project in projects | orderBy:'projectName'">
                             <option value="">Select activity project</option>
                         </select>
                         <div ng-show="form.project.$dirty" ng-messages="form.project.$error">
@@ -83,13 +83,13 @@
                         <label for="select" class="control-label">Owner</label>
                         <select
                             class="form-control"
-                            name="owner"
+                            name="userId"
                             ng-required = "true"
-                            ng-model="activity.user_id"
-                            ng-options="user.user_id as user.user_name for user in users | orderBy:'user_name'">
+                            ng-model="activity.userId"
+                            ng-options="user.userId as user.userName for user in users | orderBy:'userName'">
                             <option value="">Select activity owner</option>
                         </select>
-                        <div ng-show="form.owner.$dirty" ng-messages="form.owner.$error">
+                        <div ng-show="form.userId.$dirty" ng-messages="form.userId.$error">
                             <p class="help-block-error" ng-message="required">
                                Please, type this field.</p>
                         </div>

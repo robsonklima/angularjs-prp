@@ -1,16 +1,16 @@
 app.controller("riskFormCtrl", function($scope, $route, $location, $mdDialog,
   messages, riskService, riskTypeService, riskCategoryService){
-    var risk_id = $route.current.params.risk_id;
+    var riskId = $route.current.params.riskId;
 
     var findById = function() {
-        riskService.findById(risk_id).success(function(data, status) {
+        riskService.findById(riskId).success(function(data, status) {
             $scope.risk = data.risk[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find risk');
         });
     };
 
-    if (risk_id) {
+    if (riskId) {
         $scope.pageTitle = 'Edit risk';
         findById();
     } else {
@@ -19,7 +19,7 @@ app.controller("riskFormCtrl", function($scope, $route, $location, $mdDialog,
 
     var findRiskTypes = function() {
         riskTypeService.find().success(function(data, status) {
-            $scope.risk_types = data.risk_types;
+            $scope.riskTypes = data.riskTypes;
         }).error(function(data, status) {
             $scope.error = messages.unableToFetchItens;
         });
@@ -27,7 +27,7 @@ app.controller("riskFormCtrl", function($scope, $route, $location, $mdDialog,
 
     var findRiskCategories = function() {
         riskCategoryService.find().success(function(data, status) {
-            $scope.risk_categories = data.risk_categories;
+            $scope.riskCategories = data.riskCategories;
         }).error(function(data, status) {
             $scope.error = messages.unableToFetchItens;
         });
@@ -52,7 +52,7 @@ app.controller("riskFormCtrl", function($scope, $route, $location, $mdDialog,
     };
 
     $scope.save = function(risk) {
-        if (risk_id) {
+        if (riskId) {
             update(risk);
         } else {
             insert(risk);

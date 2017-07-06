@@ -7,57 +7,57 @@ app.factory("riskProblemService", function($http, config) {
         });
     }
 
-    var _findById = function(risk_problem_id) {
+    var _findById = function(riskProblemId) {
         return $http({
-            url: config.apiUrl + 'risk-problems/' + risk_problem_id,
+            url: config.apiUrl + 'risk-problems/' + riskProblemId,
             method: 'GET'
         });
     }
 
-    var _findByIdUser = function(user_id) {
+    var _findByIdUser = function(userId) {
         return $http({
-            url: config.apiUrl + 'risk-problems/me/' + user_id,
+            url: config.apiUrl + 'risk-problems/me/' + userId,
             method: 'GET'
         });
     }
 
-    var _findProjects = function(user_id, risk_id) {
+    var _findProjects = function(userId, riskId) {
         return $http({
             url: config.apiUrl + 'risk-problems/projects/'
-              + user_id + "/" + risk_id,
+              + userId + "/" + riskId,
             method: 'GET'
         });
     }
 
-    var _findActivities = function(user_id, risk_id) {
+    var _findActivities = function(userId, riskId) {
         return $http({
             url: config.apiUrl + 'risk-problems/activities/'
-              + user_id + "/" + risk_id,
+              + userId + "/" + riskId,
             method: 'GET'
         });
     }
 
-    var _insert = function(risk_problem) {
+    var _insert = function(riskProblem) {
         return $http({
             url: config.apiUrl + 'risk-problems/',
             method: 'POST',
-            data: risk_problem
+            data: riskProblem
         });
     }
 
-    var _update = function(risk_problem) {
+    var _update = function(riskProblem) {
         return $http({
            url: config.apiUrl + 'risk-problems/'
               + risk-identification.id,
            method: 'PUT',
-           data: risk_problem
+           data: riskProblem
         })
     }
 
-    var _remove = function(risk_problem_id) {
+    var _remove = function(riskProblemId) {
         return $http({
            url: config.apiUrl + 'risk-problems/'
-              + risk_problem_id,
+              + riskProblemId,
            method: 'DELETE'
         });
     }

@@ -1,8 +1,8 @@
 app.factory("riskReviewService", function($http, config) {
 
-    var _findByUserId = function(user_id) {
+    var _findByUserId = function(userId) {
         return $http({
-            url: config.apiUrl + 'risk-reviews/' + user_id,
+            url: config.apiUrl + 'risk-reviews/' + userId,
             method: 'GET'
         });
     }

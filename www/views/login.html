@@ -9,12 +9,12 @@
                        <input
                              class="form-control"
                              type="text"
-                             name="user_email"
+                             name="userEmail"
                              accept=""
                              placeholder="Email"
-                             ng-model="user.user_email"
+                             ng-model="user.userEmail"
                              ng-required="true">
-                       <div ng-show="form.user_email.$dirty" ng-messages="form.user_email.$error" class="login-message">
+                       <div ng-show="form.userEmail.$dirty" ng-messages="form.userEmail.$error" class="login-message">
                            <p class="help-block-error" ng-message="required">Type your email</p>
                        </div>
                     </div>
@@ -22,10 +22,10 @@
                         <input
                               class="form-control"
                               type="password"
-                              name="user_password"
+                              name="userPassword"
                               placeholder="Password" ng-required="true"
-                              ng-model="user.user_password">
-                        <div ng-show="form.user_password.$dirty" ng-messages="form.user_password.$error" class="login-message">
+                              ng-model="user.userPassword">
+                        <div ng-show="form.userPassword.$dirty" ng-messages="form.userPassword.$error" class="login-message">
                            <p class="help-block-error" ng-message="required">Type your password</p>
                        </div>
                     </div>

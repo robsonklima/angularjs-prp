@@ -19,22 +19,22 @@
                 <p>No results.</p>
           </div>
           <div class="list-group table-of-contents" ng-show="!loading">
-              <a class="list-group-item" ng-repeat="risk in risks" href="#/risk-form/{{ risk.risk_id }}">
+              <a class="list-group-item" ng-repeat="risk in risks" href="#/risk-form/{{ risk.riskId }}">
                   <h4 class="list-group-item-heading">
-                       {{ risk.risk_title }}
+                       {{ risk.riskTitle }}
                   </h4>
-                  <p class="list-group-item-text">{{ risk.risk_cause | ellipsis:80 }}</p>
+                  <p class="list-group-item-text">{{ risk.riskCause | ellipsis:80 }}</p>
                   <span class="label label-primary">
                       <i class="fa fa-save fa-fw" aria-hidden="true"></i>
-                      {{ risk.risk_added_date | date:'dd/MM HH:mm' }}</span>
+                      {{ risk.riskAddedDate | date:'dd/MM HH:mm' }}</span>
                   <span class="label"
-                      ng-class="{ 'label-success': risk.risk_type_name == 'Opportunity',
-                        'label-danger': risk.risk_type_name == 'Threat'}">
+                      ng-class="{ 'label-success': risk.riskTypeName == 'Opportunity',
+                        'label-danger': risk.riskTypeName == 'Threat'}">
                       <i class="fa fa-tags fa-fw" aria-hidden="true"></i>
-                      {{ risk.risk_type_name }}</span>
+                      {{ risk.riskTypeName }}</span>
                   <span class="label label-primary">
                       <i class="fa fa-cubes fa-fw" aria-hidden="true"></i>
-                      {{ risk.risk_category_name }}</span></a>
+                      {{ risk.riskCategoryName }}</span></a>
         </div>
       </div>
    </div>

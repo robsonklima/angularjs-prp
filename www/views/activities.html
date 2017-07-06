@@ -32,21 +32,21 @@
           <div class="list-group table-of-contents" ng-show="!loading">
             <a
                 class="list-group-item"
-                href="#/activity-form/{{ activity.activity_id }}"
+                href="#/activity-form/{{ activity.activityId }}"
                 ng-repeat="activity in activities | filter:searchCriteria">
                 <h4 class="list-group-item-heading">
-                     {{ activity.activity_title }}
+                     {{ activity.activityTitle }}
                 </h4>
-                <p class="list-group-item-text">{{ activity.activity_details | ellipsis:70 }}</p>
+                <p class="list-group-item-text">{{ activity.activityDetails | ellipsis:70 }}</p>
                 <span class="label label-primary">
                     <i class="fa fa-save fa-fw" aria-hidden="true"></i>
-                    {{ activity.activity_added_date | date:'dd/MM' }}</span>
+                    {{ activity.activityAddedDate | date:'dd/MM' }}</span>
                 <span class="label label-primary">
                     <i class="fa fa-briefcase fa-fw" aria-hidden="true"></i>
-                    {{ activity.project_name }}</span>
+                    {{ activity.projectName }}</span>
                 <span class="label label-info">
                     <i class="fa fa-user fa-fw" aria-hidden="true"></i>
-                    {{ activity.user_name }}</span>
+                    {{ activity.userName }}</span>
             </a>
         </div>
       </div>

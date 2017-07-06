@@ -1,16 +1,16 @@
 app.controller("projectFormCtrl", function($scope, $route, $location, $mdDialog,
   messages, projectService){
-    var project_id = $route.current.params.project_id;
+    var projectId = $route.current.params.projectId;
 
     var findById = function() {
-        projectService.findById(project_id).success(function(data, status) {
+        projectService.findById(projectId).success(function(data, status) {
             $scope.project = data.project[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find Project');
         });
     };
 
-    if (project_id) {
+    if (projectId) {
         $scope.pageTitle = 'Edit Project';
         findById();
     } else {
@@ -36,7 +36,7 @@ app.controller("projectFormCtrl", function($scope, $route, $location, $mdDialog,
     };
 
     $scope.save = function(project) {
-        if (project_id) {
+        if (projectId) {
             update(project);
         } else {
             insert(project);

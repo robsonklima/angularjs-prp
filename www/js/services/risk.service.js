@@ -7,9 +7,9 @@ app.factory("riskService", function($http, config) {
         });
     }
 
-    var _findById = function(risk_id) {
+    var _findById = function(riskId) {
         return $http({
-            url: config.apiUrl + 'risks/' + risk_id,
+            url: config.apiUrl + 'risks/' + riskId,
             method: 'GET'
         });
     }
@@ -24,7 +24,7 @@ app.factory("riskService", function($http, config) {
 
     var _update = function(risk) {
         return $http({
-           url: config.apiUrl + 'risks/' + risk.risk_id,
+           url: config.apiUrl + 'risks/' + risk.riskId,
            method: 'PUT',
            data: risk
         })
@@ -32,7 +32,7 @@ app.factory("riskService", function($http, config) {
 
     var _remove = function(risk) {
         return $http({
-           url: config.apiUrl + 'risks/' + risk.risk_id,
+           url: config.apiUrl + 'risks/' + risk.riskId,
            method: 'DELETE'
         });
     }

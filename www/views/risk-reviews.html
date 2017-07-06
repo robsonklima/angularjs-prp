@@ -15,7 +15,7 @@
               </div>
          </div>
 
-         <div class="form-group" ng-show="!loading && risk_reviews.length > 0">
+         <div class="form-group" ng-show="!loading && riskReviews.length > 0">
             <input
               type="text"
               class="form-control center-text"
@@ -26,18 +26,18 @@
          <div class="list-group table-of-contents" ng-show="!loading">
               <a
                   class="list-group-item"
-                  href="#/risk-review-form/{{ risk_review.risk_id }}"
-                  ng-repeat="risk_review in risk_reviews | filter:searchCriteria track by risk_review.risk_identification_id">
+                  href="#/risk-review-form/{{ riskReview.riskIdentificationId }}"
+                  ng-repeat="riskReview in riskReviews | filter:searchCriteria track by riskReview.riskIdentificationId">
                   <h4 class="list-group-item-heading">
-                       {{ risk_review.risk_title }}
+                       {{ riskReview.riskTitle }}
                   </h4>
-                  <p class="list-group-item-text">{{ risk_review.risk_cause | ellipsis:80 }}</p>
+                  <p class="list-group-item-text">{{ riskReview.riskCause | ellipsis:80 }}</p>
 
                   <span class="label"
-                      ng-class="{'label-info': risk_review.project_name, 'label-warning': risk_review.activity_title}">
-                      {{ risk_review.project_name ? 'Project Risk' : 'Activity Risk' }}</span>
+                      ng-class="{'label-info': riskReview.projectName, 'label-warning': riskReview.activityTitle}">
+                      {{ riskReview.projectName ? 'Project Risk' : 'Activity Risk' }}</span>
                   <span class="label label-primary">
-                      {{ risk_review.project_name ? risk_review.project_name : risk_review.activity_title }}</span>
+                      {{ riskReview.projectName ? riskReview.projectName : riskReview.activityTitle }}</span>
               </a>
          </div>
 

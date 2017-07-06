@@ -1,10 +1,11 @@
 app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope,
   $location, $mdDialog, riskService, riskIdentificationService){
-    var user_id = $rootScope.globals.currentUser.user_id;
-    var risk_id = $route.current.params.risk_id;
+    var userId = $rootScope.globals.currentUser.userId;
+
+    var riskId = $route.current.params.riskId;
 
     var findRiskById = function() {
-        riskService.findById(risk_id).success(function(data, status) {
+        riskService.findById(riskId).success(function(data, status) {
             $scope.risk = data.risk[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find risk');
@@ -13,12 +14,12 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
     };
 
     var findProjects = function() {
-        riskIdentificationService.findProjects(user_id, risk_id)
+        riskIdentificationService.findProjects(userId, riskId)
           .success(function(data, status) {
             $scope.projects = data.projects;
 
             angular.forEach($scope.projects, function(value, i) {
-                if ($scope.projects[i].risk_identification_id)
+                if ($scope.projects[i].riskIdentificationId)
                     $scope.projects[i].selected = true;
             }, $scope.projects);
         }).error(function(data, status) {
@@ -27,12 +28,12 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
     };
 
     var findActivities = function() {
-        riskIdentificationService.findActivities(user_id, risk_id)
+        riskIdentificationService.findActivities(userId, riskId)
           .success(function(data, status) {
             $scope.activities = data.activities;
 
             angular.forEach($scope.activities, function(value, i) {
-                if ($scope.activities[i].risk_identification_id)
+                if ($scope.activities[i].riskIdentificationId)
                     $scope.activities[i].selected = true;
             }, $scope.activities);
         }).error(function(data, status) {
@@ -40,8 +41,8 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
         });
     };
 
-    var insertRiskIdentification = function(risk_identification) {
-        riskIdentificationService.insert(risk_identification).success(function(data) {
+    var insertRiskIdentification = function(riskIdentification) {
+        riskIdentificationService.insert(riskIdentification).success(function(data) {
             findProjects();
             findActivities();
         }).error(function(data, status) {
@@ -64,23 +65,23 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
     $scope.onProjectChange = function(obj) {
     	  if (obj.selected)
             insertRiskIdentification({
-                risk_id: risk_id,
-                user_id: user_id,
-                project_id: obj.project_id
+                riskId: riskId,
+                userId: userId,
+                projectId: obj.projectId
             });
         else
-            removeRiskIdentification(obj.risk_identification_id);
+            removeRiskIdentification(obj.riskIdentificationId);
     };
 
     $scope.onActivityChange = function(obj) {
         if (obj.selected)
             insertRiskIdentification({
-                risk_id: risk_id,
-                user_id: user_id,
-                activity_id: obj.activity_id
+                riskId: riskId,
+                userId: userId,
+                activityId: obj.activityId
             });
         else
-            removeRiskIdentification(obj.risk_identification_id);
+            removeRiskIdentification(obj.riskIdentificationId);
     };
 
     var showAlert = function(title, message) {
