@@ -31,7 +31,7 @@
                   ng-repeat="risk in risks | filter:searchCriteria track by risk.risk_id">{{ risk.risk_title }}</a>
          </div>
 
-         <div class="center-text" ng-show="risks.length == 0">
+         <div class="center-text" ng-show="!risks && !loading">
              <p>No results.</p>
          </div>
       </div>

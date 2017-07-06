@@ -16,7 +16,8 @@
               <md-switch ng-model="project.selected" ng-change="onProjectChange(project)"
                 ng-disabled="loading"></md-switch>
           </md-list-item>
-          <div class="center-text back-top" ng-show="projects.length == 0">
+
+          <div class="center-text back-top" ng-show="!projects && !loading">
               <p>No Projects</p>
           </div>
 

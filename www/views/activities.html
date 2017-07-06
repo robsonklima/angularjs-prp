@@ -15,14 +15,25 @@
                   <span class="sr-only">Loading...</span>
               </div>
           </div>
-          <div class="center-text" ng-show="activities.length == 0">
+
+          <div class="center-text" ng-show="!activities && !loading">
                 <p>No results.</p>
           </div>
+
+          <div class="form-group" ng-show="!loading">
+                <input
+                  type="text"
+                  class="form-control center-text"
+                  placeholder="What are you searching?"
+                  ng-model="searchCriteria"
+                  ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}">
+          </div>
+
           <div class="list-group table-of-contents" ng-show="!loading">
             <a
                 class="list-group-item"
                 href="#/activity-form/{{ activity.activity_id }}"
-                ng-repeat="activity in activities">
+                ng-repeat="activity in activities | filter:searchCriteria">
                 <h4 class="list-group-item-heading">
                      {{ activity.activity_title }}
                 </h4>

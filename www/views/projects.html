@@ -15,15 +15,25 @@
                   <span class="sr-only">Loading...</span>
               </div>
           </div>
-          <div class="center-text" ng-show="projects.length == 0">
+
+          <div class="center-text" ng-show="!projects && !loading">
                 <p>No results.</p>
+          </div>
+
+          <div class="form-group" ng-show="!loading">
+            <input
+              type="text"
+              class="form-control center-text"
+              placeholder="What are you searching?"
+              ng-model="searchCriteria"
+              ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}">
           </div>
 
           <div class="list-group table-of-contents" ng-show="!loading">
             <a
                 class="list-group-item"
                 href="#/project-form/{{ project.project_id }}"
-                ng-repeat="project in projects | orderBy:'name'">
+                ng-repeat="project in projects | filter:searchCriteria | orderBy:'name'">
                 <span class="badge badge-2">{{ project.project_id }}</span>
                 <h4 class="list-group-item-heading">
                      {{ project.project_name }}
@@ -35,9 +45,6 @@
                 <span class="label label-default">
                     <i class="fa fa-clone fa-fw" aria-hidden="true"></i>
                     {{ project.project_amount_activities }} activities</span>
-                <!-- <span class="label label-danger">
-                    <i class="fa fa-warning fa-fw" aria-hidden="true"></i>
-                    3 risks</span> -->
             </a>
         </div>
       </div>
