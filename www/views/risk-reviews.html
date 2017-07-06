@@ -8,23 +8,22 @@
 <div class="container">
    <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-          <div class="loading" ng-show="loading">
+         <div class="loading" ng-show="loading">
               <div class="loading-content">
                   <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
                   <span class="sr-only">Loading...</span>
               </div>
-          </div>
+         </div>
 
-          <div class="form-group" ng-show="!loading">
+         <div class="form-group" ng-show="!loading && risk_reviews.length > 0">
             <input
               type="text"
               class="form-control center-text"
               placeholder="What are you searching?"
-              ng-model="searchCriteria"
-              ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}">
-          </div>
+              ng-model="searchCriteria">
+         </div>
 
-          <div class="list-group table-of-contents" ng-show="!loading">
+         <div class="list-group table-of-contents" ng-show="!loading">
               <a
                   class="list-group-item"
                   href="#/risk-review-form/{{ risk_review.risk_id }}"
@@ -40,9 +39,9 @@
                   <span class="label label-primary">
                       {{ risk_review.project_name ? risk_review.project_name : risk_review.activity_title }}</span>
               </a>
-          </div>
+         </div>
 
-         <div class="center-text" ng-show="risks.length == 0">
+         <div class="center-text" ng-show="risks_reviews.length == 0 && !loading">
              <p>No results.</p>
          </div>
       </div>

@@ -1,14 +1,35 @@
 app.controller("riskReviewFormCtrl", function($scope, $route, $rootScope,
   riskService, riskReviewService){
-    var id_user = $rootScope.globals.currentUser.id;
-    var id_risk = $route.current.params.id_risk;
 
-    var findRiskById = function() {
-        riskService.findById(id_risk).success(function(data, status) {
-            $scope.risk = data.risk[0];
-        }).error(function(data, status) {
-            showAlert('Error', 'Unable to find risk');
-            $location.path('risk-problems');
-        });
+    $scope.tabsConfig = { index: 0 };
+    $scope.onSwipeLeft = function(ev) {
+        $scope.tabsConfig.index = Math.min($scope.tabsConfig.index + 1, 4) ;
     };
+
+    $scope.onSwipeRight = function(ev) {
+        $scope.tabsConfig.index = Math.max($scope.tabsConfig.index - 1, 0);
+    };
+
+    self.contacts = [{
+      'id': 1,
+      'fullName': 'Maria Guadalupe',
+      'lastName': 'Guadalupe',
+      'title': "CEO, Found"
+    }, {
+      'id': 2,
+      'fullName': 'Gabriel García Marquéz',
+      'lastName': 'Marquéz',
+      'title': "VP Sales & Marketing"
+    }, {
+      'id': 3,
+      'fullName': 'Miguel de Cervantes',
+      'lastName': 'Cervantes',
+      'title': "Manager, Operations"
+    }, {
+      'id': 4,
+      'fullName': 'Pacorro de Castel',
+      'lastName': 'Castel',
+      'title': "Security"
+    }];
+
 });
