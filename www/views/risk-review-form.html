@@ -2,7 +2,7 @@
   <div class="left-child"><a href="#/risk-reviews"><h5><i class="fa fa-chevron-left link-icon"></i></a></h5>
   </div>
   <div class="center-child">
-    <h5>Risk Review</h5></div>
+    <h5>{{ risk.riskTitle }}</h5></div>
 </div>
 
 <div class="separator-large"></div>
@@ -21,11 +21,9 @@
                 <h5>Cost</h5>
               </div>
               <md-radio-group ng-click="moveTab()" ng-model="riskReview.cost">
-                <md-radio-button
-                    ng-repeat="riskReviewReference in riskReviewReferences
-                    | filter: { riskReviewReferenceType: 'COST' }"
-                    value="{{ riskReviewReference.riskReviewReferenceId }}">
-                      {{ riskReviewReference.riskReviewReferenceTitle }}
+                <md-radio-button ng-repeat="riskReviewReference in riskReviewReferences
+                    | filter: { riskReviewReferenceType: 'COST' }" value="{{ riskReviewReference.riskReviewReferenceWeight }}">
+                  {{ riskReviewReference.riskReviewReferenceTitle }} <opacity>({{ riskReviewReference.riskReviewReferenceWeight }})</opacity>
                 </md-radio-button>
               </md-radio-group>
             </md-tab-body>
@@ -40,11 +38,9 @@
                 <h5>Schedule</h5>
               </div>
               <md-radio-group ng-click="moveTab()" ng-model="riskReview.schedule">
-                <md-radio-button
-                    ng-repeat="riskReviewReference in riskReviewReferences
-                    | filter: { riskReviewReferenceType: 'SCHEDULE' }"
-                    value="{{ riskReviewReference.riskReviewReferenceId }}">
-                      {{ riskReviewReference.riskReviewReferenceTitle }}
+                <md-radio-button ng-repeat="riskReviewReference in riskReviewReferences
+                    | filter: { riskReviewReferenceType: 'SCHEDULE' }" value="{{ riskReviewReference.riskReviewReferenceWeight }}">
+                  {{ riskReviewReference.riskReviewReferenceTitle }} <opacity>({{ riskReviewReference.riskReviewReferenceWeight }})</opacity>
                 </md-radio-button>
               </md-radio-group>
             </md-tab-body>
@@ -59,11 +55,9 @@
                 <h5>Scope</h5>
               </div>
               <md-radio-group ng-click="moveTab()" ng-model="riskReview.scope">
-                <md-radio-button
-                    ng-repeat="riskReviewReference in riskReviewReferences
-                    | filter: { riskReviewReferenceType: 'SCOPE' }"
-                    value="{{ riskReviewReference.riskReviewReferenceId }}">
-                      {{ riskReviewReference.riskReviewReferenceTitle }}
+                <md-radio-button ng-repeat="riskReviewReference in riskReviewReferences
+                    | filter: { riskReviewReferenceType: 'SCOPE' }" value="{{ riskReviewReference.riskReviewReferenceWeight }}">
+                  {{ riskReviewReference.riskReviewReferenceTitle }} <opacity>({{ riskReviewReference.riskReviewReferenceWeight }})</opacity>
                 </md-radio-button>
               </md-radio-group>
             </md-tab-body>
@@ -78,11 +72,9 @@
                 <h5>Quality</h5>
               </div>
               <md-radio-group ng-click="moveTab()" ng-model="riskReview.quality">
-                <md-radio-button
-                    ng-repeat="riskReviewReference in riskReviewReferences
-                    | filter: { riskReviewReferenceType: 'QUALITY' }"
-                    value="{{ riskReviewReference.riskReviewReferenceId }}">
-                      {{ riskReviewReference.riskReviewReferenceTitle }}
+                <md-radio-button ng-repeat="riskReviewReference in riskReviewReferences
+                    | filter: { riskReviewReferenceType: 'QUALITY' }" value="{{ riskReviewReference.riskReviewReferenceWeight }}">
+                  {{ riskReviewReference.riskReviewReferenceTitle }} <opacity>({{ riskReviewReference.riskReviewReferenceWeight }})</opacity>
                 </md-radio-button>
               </md-radio-group>
             </md-tab-body>
@@ -97,11 +89,9 @@
                 <h5>Probability</h5>
               </div>
               <md-radio-group ng-click="moveTab()" ng-model="riskReview.probability">
-                <md-radio-button
-                    ng-repeat="riskReviewReference in riskReviewReferences
-                    | filter: { riskReviewReferenceType: 'PROBABILITY' }"
-                    value="{{ riskReviewReference.riskReviewReferenceId }}">
-                      {{ riskReviewReference.riskReviewReferenceTitle }}
+                <md-radio-button ng-repeat="riskReviewReference in riskReviewReferences
+                    | filter: { riskReviewReferenceType: 'PROBABILITY' }" value="{{ riskReviewReference.riskReviewReferenceWeight }}">
+                  {{ riskReviewReference.riskReviewReferenceTitle }} <opacity>({{ riskReviewReference.riskReviewReferenceWeight }})</opacity>
                 </md-radio-button>
               </md-radio-group>
             </md-tab-body>
@@ -116,35 +106,30 @@
               <div class="tab-title">
                 <h5>Confirm</h5>
               </div>
-              
-              <md-subheader class="md-no-sticky">Cost</md-subheader>
+
               <md-list-item>
-                  <p>{{ (riskReviewReferences | filter:{riskReviewReferenceId:riskReview.cost})[0]
-                    .riskReviewReferenceTitle }}</p>
+                <p>{{ (riskReviewReferences | filter:{ riskReviewReferenceWeight:riskReview.cost,
+                  riskReviewReferenceType: 'COST'})[0].riskReviewReferenceTitle }}</p>
               </md-list-item>
 
-              <md-subheader class="md-no-sticky">Schedule</md-subheader>
               <md-list-item>
-                  <p>{{ (riskReviewReferences | filter:{riskReviewReferenceId:riskReview.schedule})[0]
-                    .riskReviewReferenceTitle }}</p>
+                <p>{{ (riskReviewReferences | filter:{ riskReviewReferenceWeight:riskReview.schedule,
+                  riskReviewReferenceType: 'SCHEDULE'})[0].riskReviewReferenceTitle }}</p>
               </md-list-item>
 
-              <md-subheader class="md-no-sticky">Scope</md-subheader>
               <md-list-item>
-                  <p>{{ (riskReviewReferences | filter:{riskReviewReferenceId:riskReview.scope})[0]
-                    .riskReviewReferenceTitle }}</p>
+                <p>{{ (riskReviewReferences | filter:{ riskReviewReferenceWeight:riskReview.scope,
+                  riskReviewReferenceType: 'SCOPE'})[0].riskReviewReferenceTitle }}</p>
               </md-list-item>
 
-              <md-subheader class="md-no-sticky">Quality</md-subheader>
               <md-list-item>
-                  <p>{{ (riskReviewReferences | filter:{riskReviewReferenceId:riskReview.quality})[0]
-                    .riskReviewReferenceTitle }}</p>
+                <p>{{ (riskReviewReferences | filter:{ riskReviewReferenceWeight:riskReview.quality,
+                  riskReviewReferenceType: 'QUALITY'})[0].riskReviewReferenceTitle }}</p>
               </md-list-item>
 
-              <md-subheader class="md-no-sticky">Probability</md-subheader>
               <md-list-item>
-                  <p>{{ (riskReviewReferences | filter:{riskReviewReferenceId:riskReview.probability})[0]
-                    .riskReviewReferenceTitle }}</p>
+                <p>{{ (riskReviewReferences | filter:{ riskReviewReferenceWeight:riskReview.probability,
+                  riskReviewReferenceType: 'PROBABILITY'})[0].riskReviewReferenceTitle }}</p>
               </md-list-item>
 
               <button class="btn btn-primary btn-block back-top back-bottom">

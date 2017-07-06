@@ -1,14 +1,14 @@
 app.controller("riskReviewsCtrl", function($scope, $rootScope, messages,
-  riskIdentificationService){
+  riskReviewService){
     var userId = $rootScope.globals.currentUser.userId;
 
-    var findRiskIdentifications = function() {
-        riskIdentificationService.findByUserId(userId).success(function(data, status) {
-            $scope.riskIdentifications = data.riskIdentifications;
+    var findRiskReviews = function() {
+        riskReviewService.findByUserId(userId).success(function(data, status) {
+            $scope.riskReviews = data.riskReviews;
         }).error(function(data, status) {
             $scope.error = messages.unableToFetchItens;
         });
     };
 
-    findRiskIdentifications();
+    findRiskReviews();
 });

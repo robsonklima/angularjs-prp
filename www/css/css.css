@@ -260,7 +260,7 @@ md-tooltip {
 }
 
 .back-top {
-    margin-top: 12px;
+    margin-top: 14px;
 }
 
 .back-bottom {
@@ -273,4 +273,8 @@ md-tooltip {
 
 .list-group-item-text {
     margin-bottom: 6px;
+}
+
+opacity {
+    color: silver;
 }

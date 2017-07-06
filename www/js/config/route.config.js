@@ -73,7 +73,7 @@ app.config(function ($routeProvider, $httpProvider) {
        templateUrl: "views/risk-reviews.html",
        controller: "riskReviewsCtrl"
     });
-    $routeProvider.when("/risk-review-form/:riskIdentificationId", {
+    $routeProvider.when("/risk-review-form/:riskIdentificationId/:riskId", {
        templateUrl: "views/risk-review-form.html",
        controller: "riskReviewFormCtrl"
     });

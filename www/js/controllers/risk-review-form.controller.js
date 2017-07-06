@@ -1,10 +1,20 @@
-app.controller("riskReviewFormCtrl", function($scope, $timeout, $route, $rootScope,
-  riskService, riskReviewService, riskReviewReferenceService){
+app.controller("riskReviewFormCtrl", function($scope, $route, $rootScope, riskService,
+  riskReviewService, riskReviewReferenceService){
     $scope.tabsConfig = { index: 0 };
+
     $scope.moveTab = function() {
-        $timeout(function () {
-            $scope.tabsConfig.index = Math.min($scope.tabsConfig.index + 1, 5);
-        }, 350);
+        $scope.tabsConfig.index = Math.min($scope.tabsConfig.index + 1, 5);
+    };
+
+    var riskId = $route.current.params.riskId;
+
+    var findRiskById = function() {
+        riskService.findById(riskId).success(function(data, status) {
+            $scope.risk = data.risk[0];
+        }).error(function(data, status) {
+            showAlert('Error', 'Unable to find risk');
+            $location.path('risk-identifications');
+        });
     };
 
     var findRiskReviewReferences = function() {
@@ -15,5 +25,6 @@ app.controller("riskReviewFormCtrl", function($scope, $timeout, $route, $rootSco
         });
     };
 
+    findRiskById();
     findRiskReviewReferences();
 });
