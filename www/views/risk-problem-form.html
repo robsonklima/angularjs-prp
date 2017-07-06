@@ -8,11 +8,11 @@
 <div class="container">
    <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-          <md-subheader class="md-no-sticky md-wb center-text">{{ risk.title }}</md-subheader>
+          <md-subheader class="md-no-sticky md-wb center-text">{{ risk.risk_title }}</md-subheader>
 
           <md-subheader class="md-no-sticky">Projects</md-subheader>
           <md-list-item ng-repeat="project in projects">
-              <p>{{ project.name }}</p>
+              <p>{{ project.project_name }}</p>
               <md-switch
                   ng-model="project.selected"
                   ng-change="onSwitchChange(project)"
@@ -25,7 +25,7 @@
 
           <md-subheader class="md-no-sticky">Activities</md-subheader>
           <md-list-item ng-repeat="activity in activities">
-              <p>{{ activity.title }}</p>
+              <p>{{ activity.activity_title }}</p>
               <md-switch
                   ng-model="activity.selected"
                   ng-change="onSwitchChange(activity)"

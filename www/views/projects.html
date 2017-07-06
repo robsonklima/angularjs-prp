@@ -22,19 +22,19 @@
           <div class="list-group table-of-contents" ng-show="!loading">
             <a
                 class="list-group-item"
-                href="#/project-form/{{ project.id }}"
+                href="#/project-form/{{ project.project_id }}"
                 ng-repeat="project in projects | orderBy:'name'">
-                <span class="badge badge-2">{{ project.id }}</span>
+                <span class="badge badge-2">{{ project.project_id }}</span>
                 <h4 class="list-group-item-heading">
-                     {{ project.name }}
+                     {{ project.project_name }}
                 </h4>
-                <p class="list-group-item-text">{{ project.scope | ellipsis:80 }}</p>
+                <p class="list-group-item-text">{{ project.project_scope | ellipsis:80 }}</p>
                 <span class="label label-primary">
                     <i class="fa fa-save fa-fw" aria-hidden="true"></i>
-                    {{ project.added_date | date:'dd/MM HH:mm' }}</span>
+                    {{ project.project_added_date | date:'dd/MM HH:mm' }}</span>
                 <span class="label label-default">
                     <i class="fa fa-clone fa-fw" aria-hidden="true"></i>
-                    {{ project.amount_activities }} activities</span>
+                    {{ project.project_amount_activities }} activities</span>
                 <!-- <span class="label label-danger">
                     <i class="fa fa-warning fa-fw" aria-hidden="true"></i>
                     3 risks</span> -->

@@ -1,10 +1,10 @@
 app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope,
   $location, $mdDialog, riskService, riskIdentificationService){
-    var id_user = $rootScope.globals.currentUser.id;
-    var id_risk = $route.current.params.id_risk;
+    var user_id = $rootScope.globals.currentUser.user_id;
+    var risk_id = $route.current.params.risk_id;
 
     var findRiskById = function() {
-        riskService.findById(id_risk).success(function(data, status) {
+        riskService.findById(risk_id).success(function(data, status) {
             $scope.risk = data.risk[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find risk');
@@ -13,7 +13,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
     };
 
     var findProjects = function() {
-        riskIdentificationService.findProjects(id_user, id_risk)
+        riskIdentificationService.findProjects(user_id, risk_id)
           .success(function(data, status) {
             $scope.projects = data.projects;
 
@@ -27,7 +27,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
     };
 
     var findActivities = function() {
-        riskIdentificationService.findActivities(id_user, id_risk)
+        riskIdentificationService.findActivities(user_id, risk_id)
           .success(function(data, status) {
             $scope.activities = data.activities;
 
@@ -46,7 +46,8 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
             findActivities();
         }).error(function(data, status) {
             showAlert('Error', 'Unable to register risk identification');
-            $location.path('risk-identifications');
+            findProjects();
+            findActivities();
         });
     };
 
@@ -55,16 +56,17 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
 
         }).error(function(data, status) {
             showAlert('Error', 'Unable to remove risk identification');
-            $location.path('risk-identifications');
+            findProjects();
+            findActivities();
         });
     };
 
     $scope.onProjectChange = function(obj) {
     	  if (obj.selected)
             insertRiskIdentification({
-                id_risk: id_risk,
-                id_user: id_user,
-                id_project: obj.id
+                risk_id: risk_id,
+                user_id: user_id,
+                project_id: obj.project_id
             });
         else
             removeRiskIdentification(obj.risk_identification_id);
@@ -73,9 +75,9 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
     $scope.onActivityChange = function(obj) {
         if (obj.selected)
             insertRiskIdentification({
-                id_risk: id_risk,
-                id_user: id_user,
-                id_activity: obj.id
+                risk_id: risk_id,
+                user_id: user_id,
+                activity_id: obj.activity_id
             });
         else
             removeRiskIdentification(obj.risk_identification_id);

@@ -1,15 +1,16 @@
 app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog,
     messages, activityService, projectService, userService){
+    var activity_id = $route.current.params.activity_id;
 
     var findById = function() {
-        activityService.findById($route.current.params.id).success(function(data, status) {
+        activityService.findById(activity_id).success(function(data, status) {
             $scope.activity = data.activity[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find activity');
         });
     };
 
-    if ($route.current.params.id) {
+    if (activity_id) {
         $scope.pageTitle = 'Edit activity';
         findById();
     } else {
@@ -51,7 +52,7 @@ app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog
     };
 
     $scope.save = function(activity) {
-        if ($route.current.params.id) {
+        if (activity_id) {
             update(activity);
         } else {
             insert(activity);

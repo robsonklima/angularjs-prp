@@ -21,24 +21,21 @@
           <div class="list-group table-of-contents" ng-show="!loading">
             <a
                 class="list-group-item"
-                href="#/activity-form/{{ activity.id }}"
+                href="#/activity-form/{{ activity.activity_id }}"
                 ng-repeat="activity in activities">
                 <h4 class="list-group-item-heading">
-                     {{ activity.title }}
+                     {{ activity.activity_title }}
                 </h4>
-                <p class="list-group-item-text">{{ activity.details }}</p>
+                <p class="list-group-item-text">{{ activity.activity_details }}</p>
                 <span class="label label-primary">
                     <i class="fa fa-save fa-fw" aria-hidden="true"></i>
-                    {{ activity.added_date | date:'dd/MM' }}</span>
+                    {{ activity.activity_added_date | date:'dd/MM' }}</span>
                 <span class="label label-primary">
                     <i class="fa fa-briefcase fa-fw" aria-hidden="true"></i>
                     {{ activity.project_name }}</span>
                 <span class="label label-info">
                     <i class="fa fa-user fa-fw" aria-hidden="true"></i>
                     {{ activity.user_name }}</span>
-                <!-- <span class="label label-info">
-                    <i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>
-                    {{ activity.amount_hours }}</span> -->
             </a>
         </div>
       </div>

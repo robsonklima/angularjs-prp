@@ -25,7 +25,7 @@ app.config(function ($routeProvider, $httpProvider) {
        templateUrl: "views/project-form.html",
        controller: "projectFormCtrl"
     });
-    $routeProvider.when("/project-form/:id", {
+    $routeProvider.when("/project-form/:project_id", {
        templateUrl: "views/project-form.html",
        controller: "projectFormCtrl"
     });
@@ -37,7 +37,7 @@ app.config(function ($routeProvider, $httpProvider) {
        templateUrl: "views/activity-form.html",
        controller: "activityFormCtrl"
     });
-    $routeProvider.when("/activity-form/:id", {
+    $routeProvider.when("/activity-form/:activity_id", {
        templateUrl: "views/activity-form.html",
        controller: "activityFormCtrl"
     });
@@ -49,7 +49,7 @@ app.config(function ($routeProvider, $httpProvider) {
        templateUrl: "views/risk-form.html",
        controller: "riskFormCtrl"
     });
-    $routeProvider.when("/risk-form/:id", {
+    $routeProvider.when("/risk-form/:risk_id", {
        templateUrl: "views/risk-form.html",
        controller: "riskFormCtrl"
     });
@@ -57,7 +57,7 @@ app.config(function ($routeProvider, $httpProvider) {
        templateUrl: "views/risk-identifications.html",
        controller: "riskIdentificationsCtrl"
     });
-    $routeProvider.when("/risk-identification-form/:id_risk", {
+    $routeProvider.when("/risk-identification-form/:risk_id", {
        templateUrl: "views/risk-identification-form.html",
        controller: "riskIdentificationFormCtrl"
     });
@@ -65,9 +65,17 @@ app.config(function ($routeProvider, $httpProvider) {
        templateUrl: "views/risk-problems.html",
        controller: "riskProblemsCtrl"
     });
-    $routeProvider.when("/risk-problem-form/:id_risk", {
+    $routeProvider.when("/risk-problem-form/:risk_id", {
        templateUrl: "views/risk-problem-form.html",
        controller: "riskProblemFormCtrl"
+    });
+    $routeProvider.when("/risk-reviews", {
+       templateUrl: "views/risk-reviews.html",
+       controller: "riskReviewsCtrl"
+    });
+    $routeProvider.when("/risk-review-form/:risk_identification_id", {
+       templateUrl: "views/risk-review-form.html",
+       controller: "riskReviewFormCtrl"
     });
 
     // Error

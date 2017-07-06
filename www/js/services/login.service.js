@@ -9,7 +9,7 @@ app.factory("loginService", function($http, $rootScope, $cookieStore, base64Fact
     }
 
     var _setCredentials = function (user) {
-        var authdata = base64Factory.encode(user.email + ':' + user.password);
+        var authdata = base64Factory.encode(user.user_email + ':' + user.user_password);
 
         $rootScope.globals = { currentUser: user };
 

@@ -14,14 +14,25 @@
                   <span class="sr-only">Loading...</span>
               </div>
           </div>
-          <div class="center-text" ng-show="risks.length == 0">
-                <p>No results.</p>
+
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control center-text"
+              placeholder="What are you searching?"
+              ng-model="searchCriteria"
+              ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}">
           </div>
+
           <div class="list-group" ng-show="!loading">
               <a
-                  class="list-group-item"
-                  href="#/risk-identification-form/{{ risk.id }}"
-                  ng-repeat="risk in risks" >{{ risk.title }}</a>
+                class="list-group-item"
+                href="#/risk-identification-form/{{ risk.risk_id }}"
+                ng-repeat="risk in risks | filter:searchCriteria track by risk.risk_id">{{ risk.risk_title }}</a>
+         </div>
+
+         <div class="center-text" ng-show="!risks">
+              <p>No results.</p>
          </div>
       </div>
    </div>

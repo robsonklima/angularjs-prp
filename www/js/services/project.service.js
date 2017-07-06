@@ -7,9 +7,9 @@ app.factory("projectService", function($http, config) {
         });
     }
 
-    var _findById = function(id) {
+    var _findById = function(project_id) {
         return $http({
-            url: config.apiUrl + 'projects/' + id,
+            url: config.apiUrl + 'projects/' + project_id,
             method: 'GET'
         });
     }
@@ -24,7 +24,7 @@ app.factory("projectService", function($http, config) {
 
     var _update = function(project) {
         return $http({
-           url: config.apiUrl + 'projects/' + project.id,
+           url: config.apiUrl + 'projects/' + project.project_id,
            method: 'PUT',
            data: project
         })
@@ -32,7 +32,7 @@ app.factory("projectService", function($http, config) {
 
     var _remove = function(project) {
         return $http({
-           url: config.apiUrl + 'projects/' + project.id,
+           url: config.apiUrl + 'projects/' + project.project_id,
            method: 'DELETE'
         });
     }

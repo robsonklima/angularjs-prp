@@ -1,10 +1,10 @@
 app.controller("riskProblemFormCtrl", function($scope, $route, $rootScope,
   $location, $mdDialog, riskService, riskProblemService){
-    var id_user = $rootScope.globals.currentUser.id;
-    var id_risk = $route.current.params.id_risk;
+    var user_id = $rootScope.globals.currentUser.user_id;
+    var risk_id = $route.current.params.risk_id;
 
     var findRiskById = function() {
-        riskService.findById(id_risk).success(function(data, status) {
+        riskService.findById(risk_id).success(function(data, status) {
             $scope.risk = data.risk[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find risk');
@@ -13,12 +13,12 @@ app.controller("riskProblemFormCtrl", function($scope, $route, $rootScope,
     };
 
     var findProjects = function() {
-        riskProblemService.findProjects(id_user, id_risk)
+        riskProblemService.findProjects(user_id, risk_id)
           .success(function(data, status) {
             $scope.projects = data.projects;
 
             angular.forEach($scope.projects, function(value, i) {
-                if ($scope.projects[i].id_risk_problem)
+                if ($scope.projects[i].risk_problem_id)
                     $scope.projects[i].selected = true;
             }, $scope.projects);
         }).error(function(data, status) {
@@ -27,12 +27,12 @@ app.controller("riskProblemFormCtrl", function($scope, $route, $rootScope,
     };
 
     var findActivities = function() {
-        riskProblemService.findActivities(id_user, id_risk)
+        riskProblemService.findActivities(user_id, risk_id)
           .success(function(data, status) {
             $scope.activities = data.activities;
 
             angular.forEach($scope.activities, function(value, i) {
-                if ($scope.activities[i].id_risk_problem)
+                if ($scope.activities[i].risk_problem_id)
                     $scope.activities[i].selected = true;
             }, $scope.activities);
         }).error(function(data, status) {
@@ -46,7 +46,8 @@ app.controller("riskProblemFormCtrl", function($scope, $route, $rootScope,
             findActivities();
         }).error(function(data, status) {
             showAlert('Error', 'Unable to register risk identification');
-            $location.path('risk-problems');
+            findProjects();
+            findActivities();
         });
     };
 
@@ -55,18 +56,19 @@ app.controller("riskProblemFormCtrl", function($scope, $route, $rootScope,
 
         }).error(function(data, status) {
             showAlert('Error', 'Unable to remove risk identification');
-            $location.path('risk-problems');
+            findProjects();
+            findActivities();
         });
     };
 
     $scope.onSwitchChange = function(obj) {
     	  if (obj.selected)
             insertRiskProblem({
-                id_user: id_user,
-                id_risk_identification: obj.id_risk_identification
+                user_id: user_id,
+                risk_identification_id: obj.risk_identification_id
             });
         else
-            removeRiskProblem(obj.id_risk_problem);
+            removeRiskProblem(obj.risk_problem_id);
     };
 
     var showAlert = function(title, message) {

@@ -19,14 +19,14 @@
                 <p>No results.</p>
           </div>
           <div class="list-group table-of-contents" ng-show="!loading">
-              <a class="list-group-item" ng-repeat="risk in risks" href="#/risk-form/{{ risk.id }}">
+              <a class="list-group-item" ng-repeat="risk in risks" href="#/risk-form/{{ risk.risk_id }}">
                   <h4 class="list-group-item-heading">
-                       {{ risk.title }}
+                       {{ risk.risk_title }}
                   </h4>
-                  <p class="list-group-item-text">{{ risk.cause | ellipsis:80 }}</p>
+                  <p class="list-group-item-text">{{ risk.risk_cause | ellipsis:80 }}</p>
                   <span class="label label-primary">
                       <i class="fa fa-save fa-fw" aria-hidden="true"></i>
-                      {{ risk.added_date | date:'dd/MM HH:mm' }}</span>
+                      {{ risk.risk_added_date | date:'dd/MM HH:mm' }}</span>
                   <span class="label"
                       ng-class="{ 'label-success': risk.risk_type_name == 'Opportunity',
                         'label-danger': risk.risk_type_name == 'Threat'}">

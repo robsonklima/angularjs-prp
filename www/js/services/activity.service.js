@@ -7,16 +7,16 @@ app.factory("activityService", function($http, config) {
         });
     }
 
-    var _findById = function(id) {
+    var _findById = function(activity_id) {
         return $http({
-            url: config.apiUrl + 'activities/' + id,
+            url: config.apiUrl + 'activities/' + activity_id,
             method: 'GET'
         });
     }
 
-    var _findByUserWithRiskIdent = function(id_user) {
+    var _findByUserWithRiskIdent = function(user_id) {
         return $http({
-            url: config.apiUrl + 'activities/with-risk-identifications/' + id_user,
+            url: config.apiUrl + 'activities/with-risk-identifications/' + user_id,
             method: 'GET'
         });
     }
@@ -31,7 +31,7 @@ app.factory("activityService", function($http, config) {
 
     var _update = function(activity) {
         return $http({
-           url: config.apiUrl + 'activities/' + activity.id,
+           url: config.apiUrl + 'activities/' + activity.activity_id,
            method: 'PUT',
            data: activity
         })
@@ -39,7 +39,7 @@ app.factory("activityService", function($http, config) {
 
     var _remove = function(activity) {
         return $http({
-           url: config.apiUrl + 'activities/' + activity.id,
+           url: config.apiUrl + 'activities/' + activity.activity_id,
            method: 'DELETE'
         });
     }

@@ -1,6 +1,6 @@
 <div class="main-nav">
     <div class="left-child"><a href="#/home"><h5><i class="fa fa-chevron-left link-icon"></i></a></h5></div>
-    <div class="center-child"><h5>Mark Risk as Problem</h5></div>
+    <div class="center-child"><h5>Risk Reviews</h5></div>
 </div>
 
 <div class="separator-large"></div>
@@ -24,12 +24,23 @@
               ng-model-options="{updateOn: 'default blur', debounce:{default: 500, blur: 0}}">
           </div>
 
-          <div class="list-group" ng-show="!loading">
+          <div class="list-group table-of-contents" ng-show="!loading">
               <a
                   class="list-group-item"
-                  href="#/risk-problem-form/{{ risk.risk_id }}"
-                  ng-repeat="risk in risks | filter:searchCriteria track by risk.risk_id">{{ risk.risk_title }}</a>
-         </div>
+                  href="#/risk-review-form/{{ risk_review.risk_id }}"
+                  ng-repeat="risk_review in risk_reviews | filter:searchCriteria track by risk_review.risk_identification_id">
+                  <h4 class="list-group-item-heading">
+                       {{ risk_review.risk_title }}
+                  </h4>
+                  <p class="list-group-item-text">{{ risk_review.risk_cause | ellipsis:80 }}</p>
+
+                  <span class="label"
+                      ng-class="{'label-info': risk_review.project_name, 'label-warning': risk_review.activity_title}">
+                      {{ risk_review.project_name ? 'Project Risk' : 'Activity Risk' }}</span>
+                  <span class="label label-primary">
+                      {{ risk_review.project_name ? risk_review.project_name : risk_review.activity_title }}</span>
+              </a>
+          </div>
 
          <div class="center-text" ng-show="risks.length == 0">
              <p>No results.</p>

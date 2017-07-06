@@ -7,32 +7,32 @@ app.factory("riskProblemService", function($http, config) {
         });
     }
 
-    var _findById = function(id) {
+    var _findById = function(risk_problem_id) {
         return $http({
-            url: config.apiUrl + 'risk-problems/' + id,
+            url: config.apiUrl + 'risk-problems/' + risk_problem_id,
             method: 'GET'
         });
     }
 
-    var _findByIdUser = function(id_user) {
+    var _findByIdUser = function(user_id) {
         return $http({
-            url: config.apiUrl + 'risk-problems/me/' + id_user,
+            url: config.apiUrl + 'risk-problems/me/' + user_id,
             method: 'GET'
         });
     }
 
-    var _findProjects = function(id_user, id_risk) {
+    var _findProjects = function(user_id, risk_id) {
         return $http({
             url: config.apiUrl + 'risk-problems/projects/'
-              + id_user + "/" + id_risk,
+              + user_id + "/" + risk_id,
             method: 'GET'
         });
     }
 
-    var _findActivities = function(id_user, id_risk) {
+    var _findActivities = function(user_id, risk_id) {
         return $http({
             url: config.apiUrl + 'risk-problems/activities/'
-              + id_user + "/" + id_risk,
+              + user_id + "/" + risk_id,
             method: 'GET'
         });
     }

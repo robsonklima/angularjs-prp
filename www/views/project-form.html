@@ -2,7 +2,7 @@
     <div class="left-child"><a href="#/projects"><h5>
         <i class="fa fa-chevron-left link-icon"></i></a></h5></div>
     <div class="center-child"><h5>{{ pageTitle }}</h5></div>
-    <div class="right-child" ng-if="project.id"><a ng-click="remove(project)">
+    <div class="right-child" ng-if="project.project_id"><a ng-click="remove(project)">
         <h5><i class="fa fa-trash link-icon"></i></h5></a></div>
 </div>
 
@@ -17,20 +17,20 @@
                     <span class="sr-only">Loading...</span>
                 </div>
             </div>
+
             <form name="form">
                 <div ng-if="!loading">
-
                     <div class="form-group">
                        <label class="control-label">Name</label>
                        <input
                           class="form-control"
                           type="text"
                           placeholder="Project name"
-                          name="name"
-                          ng-model="project.name"
+                          name="project_name"
+                          ng-model="project.project_name"
                           ng-required="true"
                           ng-minlength="5"/>
-                       <div ng-show="form.name.$dirty" ng-messages="form.name.$error">
+                       <div ng-show="form.project_name.$dirty" ng-messages="form.project_name.$error">
                            <p class="help-block-error" ng-message="required">
                               Please, type this field.</p>
                            <p class="help-block-error" ng-message="minlength">
@@ -45,7 +45,7 @@
                                 md-maxlength="150"
                                 rows="5"
                                 md-select-on-focus
-                                ng-model="project.scope"></textarea>
+                                ng-model="project.project_scope"></textarea>
                         </md-input-container>
                     </div>
 
