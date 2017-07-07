@@ -1,21 +1,17 @@
 app.factory("loginService", function($http, $rootScope, $cookieStore, base64Factory, config) {
 
     var _login = function(user) {
-
-        console.log(user);
         return $http({
            url: config.apiUrl + 'users/me',
            method: 'POST',
            data: user
-        })
+        });
     }
 
     var _setCredentials = function (user) {
         var authdata = base64Factory.encode(user.userEmail + ':' + user.userPassword);
-
-        $rootScope.globals = { currentUser: user, authdata: authdata };
-
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
+        $rootScope.globals = { currentUser: user };
+        $http.defaults.headers.common['Authorization'] = authdata;
         $cookieStore.put('globals', $rootScope.globals);
     };
 

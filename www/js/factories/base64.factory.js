@@ -1,5 +1,5 @@
 app.factory('base64Factory', function () {
-
+    
     var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
     return {
@@ -79,5 +79,4 @@ app.factory('base64Factory', function () {
             return output;
         }
     };
-
 })

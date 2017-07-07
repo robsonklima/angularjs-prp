@@ -2,8 +2,6 @@ app.controller("homeCtrl", function($scope, $rootScope, $http, $cookieStore, $ti
     $rootScope.showSideNav = true;
     $scope.user = $rootScope.globals.currentUser;
 
-    console.log($rootScope.globals.authdata);
-
     $timeout(function () {
         $scope.showSpeedDial = true;
     }, 10);
