@@ -7,7 +7,16 @@ app.factory("riskReviewService", function($http, config) {
         });
     }
 
+    var _insert = function(riskReview) {
+        return $http({
+            url: config.apiUrl + 'risk-reviews/',
+            method: 'POST',
+            data: riskReview
+        });
+    }
+
     return {
-        findByUserId: _findByUserId
+        findByUserId: _findByUserId,
+        insert: _insert
     };
 });

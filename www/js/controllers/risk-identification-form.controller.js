@@ -1,7 +1,6 @@
 app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope,
   $location, $mdDialog, riskService, riskIdentificationService){
     var userId = $rootScope.globals.currentUser.userId;
-
     var riskId = $route.current.params.riskId;
 
     var findRiskById = function() {
