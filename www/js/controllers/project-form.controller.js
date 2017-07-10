@@ -4,7 +4,7 @@ app.controller("projectFormCtrl", function($scope, $route, $location, $mdDialog,
 
     var findById = function() {
         projectService.findById(projectId).success(function(data, status) {
-            $scope.project = data.project[0];
+            $scope.project = data[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find Project');
         });

@@ -4,7 +4,7 @@ app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog
 
     var findById = function() {
         activityService.findById(activityId).success(function(data, status) {
-            $scope.activity = data.activity[0];
+            $scope.activity = data[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find activity');
         });
@@ -19,7 +19,7 @@ app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog
 
     var findUsers = function() {
         userService.find().success(function(data, status) {
-            $scope.users = data.users;
+            $scope.users = data;
         }).error(function(data, status) {
             $scope.error = messages.unableToFetchItens;
         });
@@ -27,7 +27,7 @@ app.controller("activityFormCtrl", function($scope, $route, $location, $mdDialog
 
     var findProjects = function() {
         projectService.find().success(function(data, status) {
-            $scope.projects = data.projects;
+            $scope.projects = data;
         }).error(function(data, status) {
             $scope.error = messages.unableToFetchItens;
         });

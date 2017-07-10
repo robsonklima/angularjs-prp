@@ -2,7 +2,7 @@ app.factory("userService", function($http, config) {
 
     var _find = function() {
         return $http({
-            url: config.apiUrl + 'users/',
+            url: config.apiUrl + 'private/users/',
             method: 'GET'
         });
     }

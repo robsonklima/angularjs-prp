@@ -5,7 +5,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
 
     var findRiskById = function() {
         riskService.findById(riskId).success(function(data, status) {
-            $scope.risk = data.risk[0];
+            $scope.risk = data[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find risk');
             $location.path('risk-identifications');
@@ -15,7 +15,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
     var findProjects = function() {
         riskIdentificationService.findProjects(userId, riskId)
           .success(function(data, status) {
-            $scope.projects = data.projects;
+            $scope.projects = data;
 
             angular.forEach($scope.projects, function(value, i) {
                 if ($scope.projects[i].riskIdentificationId)
@@ -29,7 +29,7 @@ app.controller("riskIdentificationFormCtrl", function($scope, $route, $rootScope
     var findActivities = function() {
         riskIdentificationService.findActivities(userId, riskId)
           .success(function(data, status) {
-            $scope.activities = data.activities;
+            $scope.activities = data;
 
             angular.forEach($scope.activities, function(value, i) {
                 if ($scope.activities[i].riskIdentificationId)

@@ -15,7 +15,7 @@
               </div>
          </div>
 
-         <div class="form-group" ng-show="!loading && riskIdentifications.length > 0">
+         <div class="form-group" ng-show="!loading && riskReviews.length > 0">
             <input
               type="text"
               class="form-control center-text"
@@ -28,16 +28,16 @@
                   class="list-group-item"
                   href="#/risk-review-form/{{ riskReview.riskIdentificationId }}/{{ riskReview.riskId }}"
                   ng-repeat="riskReview in riskReviews | filter:searchCriteria track by riskReview.riskIdentificationId"
-                  ng-class="{ 'disabled': riskReview.riskReviewDateAdded }">
+                  ng-class="{ 'disabled': riskReview.riskReviewAddedDate }">
 
-                  <span class="badge badge-2" ng-show="riskReview.riskReviewDateAdded">
+                  <span class="badge badge-2" ng-show="riskReview.riskReviewAddedDate">
                     <i class="fa fa-check" aria-hidden="true"></i>
                   </span>
 
                   <h4 class="list-group-item-heading">
                       {{ riskReview.riskTitle }}
                   </h4>
-                  
+
                   <p class="list-group-item-text">
                       {{ riskReview.riskCause | ellipsis:80 }}
                   </p>
@@ -50,12 +50,12 @@
                   <span class="label label-primary">
                       {{ riskReview.projectName ? riskReview.projectName : riskReview.activityTitle }}</span>
 
-                  <span class="label label-primary" ng-show="riskReview.riskReviewDateAdded">
-                      {{ riskReview.riskReviewDateAdded | date:'dd/MM HH:mm' }}</span>
+                  <span class="label label-primary" ng-show="riskReview.riskReviewAddedDate">
+                      {{ riskReview.riskReviewAddedDate | date:'dd/MM HH:mm' }}</span>
                </a>
           </div>
 
-         <div class="center-text" ng-show="risks_reviews.length == 0 && !loading">
+         <div class="center-text" ng-show="riskReviews.length == 0 && !loading">
              <p>No results.</p>
          </div>
       </div>

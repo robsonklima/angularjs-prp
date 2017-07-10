@@ -12,7 +12,7 @@ app.controller("riskReviewFormCtrl", function($scope, $route, $rootScope, $mdDia
 
     var findRiskById = function() {
         riskService.findById(riskId).success(function(data, status) {
-            $scope.risk = data.risk[0];
+            $scope.risk = data[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find risk');
             $location.path('risk-identifications');
@@ -21,7 +21,7 @@ app.controller("riskReviewFormCtrl", function($scope, $route, $rootScope, $mdDia
 
     var findRiskReviewReferences = function() {
         riskReviewReferenceService.findRiskReviewReferences().success(function (data) {
-            $scope.riskReviewReferences = data.riskReviewReferences;
+            $scope.riskReviewReferences = data;
         }).error(function (data, status) {
             $scope.error = "Unable to fetch references";
         });

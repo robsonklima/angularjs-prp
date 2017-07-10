@@ -4,7 +4,7 @@ app.controller("riskFormCtrl", function($scope, $route, $location, $mdDialog,
 
     var findById = function() {
         riskService.findById(riskId).success(function(data, status) {
-            $scope.risk = data.risk[0];
+            $scope.risk = data[0];
         }).error(function(data, status) {
             showAlert('Error', 'Unable to find risk');
         });
@@ -19,7 +19,7 @@ app.controller("riskFormCtrl", function($scope, $route, $location, $mdDialog,
 
     var findRiskTypes = function() {
         riskTypeService.find().success(function(data, status) {
-            $scope.riskTypes = data.riskTypes;
+            $scope.riskTypes = data;
         }).error(function(data, status) {
             $scope.error = messages.unableToFetchItens;
         });
@@ -27,7 +27,7 @@ app.controller("riskFormCtrl", function($scope, $route, $location, $mdDialog,
 
     var findRiskCategories = function() {
         riskCategoryService.find().success(function(data, status) {
-            $scope.riskCategories = data.riskCategories;
+            $scope.riskCategories = data;
         }).error(function(data, status) {
             $scope.error = messages.unableToFetchItens;
         });

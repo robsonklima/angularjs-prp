@@ -4,7 +4,8 @@ var app = angular.module("app", ["ngRoute", "ngCookies", "ngMessages", "ngMateri
 
     $rootScope.globals = $cookieStore.get('globals') || {};
     if ($rootScope.globals.currentUser) {
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' 
+            + $rootScope.globals.currentUser.userToken;
     }
 
     $rootScope.$on('$locationChangeStart', function (event, next, current) {

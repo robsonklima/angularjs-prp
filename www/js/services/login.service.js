@@ -1,24 +1,23 @@
-app.factory("loginService", function($http, $rootScope, $cookieStore, base64Factory, config) {
+app.factory("loginService", function($http, $rootScope, $cookieStore, config) {
 
     var _login = function(user) {
         return $http({
-           url: config.apiUrl + 'users/me',
+           url: config.apiUrl + 'users/login',
            method: 'POST',
            data: user
         });
     }
 
     var _setCredentials = function (user) {
-        var authdata = base64Factory.encode(user.userEmail + ':' + user.userPassword);
         $rootScope.globals = { currentUser: user };
-        $http.defaults.headers.common['Authorization'] = authdata;
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + user.userToken;
         $cookieStore.put('globals', $rootScope.globals);
     };
 
     var _clearCredentials = function () {
         $rootScope.globals = {};
         $cookieStore.remove('globals');
-        $http.defaults.headers.common.Authorization = 'Basic ';
+        $http.defaults.headers.common.Authorization = 'Bearer ';
     };
 
     return {
