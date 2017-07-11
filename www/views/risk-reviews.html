@@ -30,13 +30,15 @@
                   ng-repeat="riskReview in riskReviews | filter:searchCriteria track by riskReview.riskIdentificationId"
                   ng-class="{ 'disabled': riskReview.riskReviewAddedDate }">
 
-                  <span class="badge badge-2" ng-show="riskReview.riskReviewAddedDate">
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                  </span>
+                  <span class="badge badge-2">3</span>
 
                   <h4 class="list-group-item-heading">
                       {{ riskReview.riskTitle }}
                   </h4>
+
+                  <div class="progress progress-striped active">
+                      <div class="progress-bar progress-bar-primary" style="width: {{ riskReview.projectId }}%"></div>
+                  </div>
 
                   <p class="list-group-item-text">
                       {{ riskReview.riskCause | ellipsis:80 }}
@@ -52,6 +54,9 @@
 
                   <span class="label label-primary" ng-show="riskReview.riskReviewAddedDate">
                       {{ riskReview.riskReviewAddedDate | date:'dd/MM HH:mm' }}</span>
+
+                  <span class="label label-success" ng-show="riskReview.riskReviewAddedDate">
+                      <i class="fa fa-check" aria-hidden="true"></i></span>
                </a>
           </div>
 

@@ -278,3 +278,7 @@ md-tooltip {
 opacity {
     color: silver;
 }
+
+.progress {
+    margin-bottom: 6px !important;
+}
