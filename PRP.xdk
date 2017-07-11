@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.webapp",
       "src": "",
       "projectGuid": "ccf96aaa-1c6b-489e-bad6-ec74d9e9e9e9",
-      "lastModifiedDate": 1498872471985,
+      "lastModifiedDate": 1499734248960,
       "creationDate": 1498869338256
     },
     "testDirectory": "test",
@@ -43,7 +43,8 @@
             "*"
           ],
           "intents": [],
-          "navigation": []
+          "navigation": [],
+          "properties": {}
         },
         "addlPermissions_": "",
         "icons_": [
@@ -136,7 +137,7 @@
         "runtime_": "W3C",
         "name_": "WebApp",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appVersion_": "0.0.1"
       },
@@ -154,7 +155,7 @@
         "runtime_": "W3C on Chrome OS",
         "name_": "Chrome",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "certificateId_": "",
         "appName_": "Project Risk Prediction",
         "appID_": "not.yet.specified",
